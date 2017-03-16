@@ -39,7 +39,9 @@ ${comments.rawReadDocs? comments.rawReadDocs.map(({text}) => text).join('\n') : 
 
 ${binHelpers.length? `## ${lang('bin options')}\n`: ''}
 ${binHelpers.map(({name, text}) => {
-    return `\`\`\`
+    return `- ${name}
+
+\`\`\`
 
 $ ./node_modules/${packageJson.name}/bin/${name} -h
 

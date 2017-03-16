@@ -14,6 +14,8 @@ Install on global, 使用 `npm i readme-builder -g`
 
 ## bin 选项
 
+- buildreadme
+
 ```
 
 $ ./node_modules/readme-builder/bin/buildreadme -h
