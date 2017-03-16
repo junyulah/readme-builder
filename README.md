@@ -11,11 +11,10 @@ Install on global, using `npm i readme-builder -g`
 ## bin options
 
 ```
+
 $ ./node_modules/readme-builder/bin/buildreadme -h
 
-Usage:
-/Users/yuer/workspaceforme/category/career/container/opensource/readme-builder/b
-in/build-readme.js
+Usage: buildreadme
     -p [project directory, default is current directory]
     -t [project type, default is node]
     -w [write to readme.md]

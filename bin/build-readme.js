@@ -12,7 +12,7 @@ let docBuilder = require('..');
 
 let yargs = require('yargs');
 
-yargs.usage(`Usage: $0
+yargs.usage(`Usage: buildreadme
     -p [project directory, default is current directory]
     -t [project type, default is node]
     -w [write to readme.md]
