@@ -74,7 +74,7 @@ let getLicense = (projectDir) => {
     });
 };
 
-let getComments = (projectDir, pattern = '**/*.js') => {
+let getComments = (projectDir, pattern = '!(node_modules)**/*.js') => {
     return new Promise((resolve, reject) => {
         glob(pattern, {
             cwd: projectDir

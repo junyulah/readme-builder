@@ -16,7 +16,7 @@ yargs.usage(`Usage: $0
     -p [project directory, default is current directory]
     -t [project type, default is node]
     -w [write to readme.md]
-    `).demandOption([]);
+    `).help('h').alias('h', 'help');
 
 let {
     argv
