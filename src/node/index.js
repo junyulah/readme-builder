@@ -14,6 +14,8 @@ let {
 
 let commentToDocVariables = require('./commentToDocVariables');
 
+let binHelpDoc = require('./binHelpDoc');
+
 let readFile = promisify(fs.readFile);
 let stat = promisify(fs.stat);
 
@@ -21,6 +23,12 @@ let stat = promisify(fs.stat);
  * step1: collect information from project root directory
  *
  * step2: render doc according to tpl and information
+ *
+ *
+ * TODO bin tool, show params
+ *    get the result of `./binName -h` and show it.
+ *
+ * TODO test command
  */
 
 module.exports = ({
@@ -36,12 +44,14 @@ let collect = (projectDir, pattern) => {
     return Promise.all([
         getPackageJson(projectDir),
         getLicense(projectDir),
-        getComments(projectDir, pattern)
-    ]).then(([packageJson, license, comments]) => {
+        getComments(projectDir, pattern),
+        binHelpDoc(projectDir)
+    ]).then(([packageJson, license, comments, binHelpers]) => {
         return {
             packageJson,
             license,
-            comments: commentToDocVariables(comments)
+            comments: commentToDocVariables(comments),
+            binHelpers
         };
     });
 };
