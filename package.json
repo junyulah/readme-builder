@@ -1,7 +1,7 @@
 {
   "name": "readme-builder",
   "version": "0.0.2",
-  "description": "generate readme doc for project",
+  "description": " A simple tool used to generate read me doc for project",
   "main": "index.js",
   "scripts": {
     "test": "mocha --reporter spec 'test/**/*.js'"

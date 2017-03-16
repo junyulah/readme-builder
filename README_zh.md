@@ -4,15 +4,15 @@
 
 [中文文档](./README_zh.md)   [document](./README.md)
 
-## install
+## 安装
 
 `npm i readme-builder --save` or `npm i readme-builder --save-dev`
 
-Install on global, using `npm i readme-builder -g`
+Install on global, 使用 `npm i readme-builder -g`
 
 
 
-## bin options
+## bin 选项
 
 ```
 
@@ -30,11 +30,11 @@ Options:
 
 ```
 
-## run tests
+## 运行测试用例
 
 `npm test`
 
-## license
+## 许可证
 
 MIT License
 

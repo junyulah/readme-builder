@@ -26,11 +26,14 @@ let projectDir = path.resolve(argv.p || process.cwd());
 
 docBuilder({
     projectDir
-}, argv.t).then((readmeStr) => {
+}, argv.t).then((readmeMap) => {
     if (argv.w) {
-        let readmePath = path.resolve(projectDir, 'README.md');
-
-        return writeFile(readmePath, readmeStr, 'utf-8');
+        return Promise.all(
+            Object.keys(readmeMap).map((type) => {
+                let readmePath = type === 'en' ? path.resolve(projectDir, 'README.md') : path.resolve(projectDir, `README_${type}.md`);
+                return writeFile(readmePath, readmeMap[type], 'utf-8');
+            })
+        );
     } else {
         console.log(readmeStr); // eslint-disable-line
     }
