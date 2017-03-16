@@ -1,0 +1,32 @@
+{
+  "name": "readme-builder",
+  "version": "0.0.1",
+  "description": "generate readme doc for project",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha --reporter spec 'test/**/*.js'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LoveKino/readme-builder.git"
+  },
+  "keywords": [
+    "readme",
+    "doc",
+    "automatic"
+  ],
+  "author": "ddchen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LoveKino/readme-builder/issues"
+  },
+  "homepage": "https://github.com/LoveKino/readme-builder#readme",
+  "dependencies": {
+    "defcomment": "^0.1.7",
+    "es6-promisify": "^5.0.0",
+    "glob": "^7.1.1"
+  },
+  "devDependencies": {
+    "mocha": "^3.2.0"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "test-p0",
+  "version": "0.2.1",
+  "description": "test p0 project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "test",
+    "p0",
+    "project"
+  ],
+  "author": "ddchen",
+  "license": "MIT"
+}
