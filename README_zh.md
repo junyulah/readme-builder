@@ -16,7 +16,7 @@ Install on global, 使用 `npm i readme-builder -g`
 
 - buildreadme
 
-```
+```shell
 
 $ ./node_modules/readme-builder/bin/buildreadme -h
 
@@ -32,7 +32,39 @@ Options:
 
 ```
 
-## 运行测试用例
+## 开发
+
+### file structure
+
+```
+.
+│──LICENSE
+│──README.md
+│──README_zh.md
+│──bin
+│   └──build-readme.js
+│──index.js
+│──package.json
+│──src
+│   │──index.js
+│   └──node
+│       │──binExample.js
+│       │──binHelpDoc.js
+│       │──commentToDocVariables.js
+│       │──devHelpDoc.js
+│       │──index.js
+│       └──tpl
+│           │──index.js
+│           └──language
+│               └──index.js
+└──test
+    │──fixture
+    │   └──node
+    └──index.js 
+```
+
+
+### 运行测试用例
 
 `npm test`
 
