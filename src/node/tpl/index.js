@@ -4,8 +4,6 @@ let {langs, getLang} = require('./language');
 
 let {getFilesToc} = require('../filesToc');
 
-let path = require('path');
-
 let langGuideMap = {
     'zh': '中文文档',
     'en': 'document'
@@ -62,9 +60,7 @@ ${text}
 ### ${lang('file structure')}
 
 \`\`\`
-${getFilesToc(devHelpers.filesTree, (name, file) => {
-    return `[${name}](${path.relative(projectDir, file.path) || '.'})`;
-})} 
+${getFilesToc(devHelpers.filesTree)} 
 \`\`\`
 
 ${testText? `

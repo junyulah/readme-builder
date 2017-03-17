@@ -58,14 +58,12 @@ Options:
 │       │──[index.js](src/node/index.js)
 │       │──[renderFileToc.js](src/node/renderFileToc.js)
 │       └──[tpl](src/node/tpl)
-│           └──[index.js](src/node/tpl/index.js)
+│           │──[index.js](src/node/tpl/index.js)
+│           └──[language](src/node/tpl/language)
+│               └──[index.js](src/node/tpl/language/index.js)
 └──[test](test)
     │──[fixture](test/fixture)
     │   └──[node](test/fixture/node)
-    │       └──[p0](test/fixture/node/p0)
-    │           │──[LICENSE](test/fixture/node/p0/LICENSE)
-    │           │──[index.js](test/fixture/node/p0/index.js)
-    │           └──[package.json](test/fixture/node/p0/package.json)
     └──[index.js](test/index.js) 
 ```
 
