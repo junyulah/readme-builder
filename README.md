@@ -38,34 +38,32 @@ Options:
 
 ### file structure
 
-```
-[.](.)
-│──[LICENSE](LICENSE)
-│──[README.md](README.md)
-│──[README_zh.md](README_zh.md)
-│──[bin](bin)
-│   └──[build-readme.js](bin/build-readme.js)
-│──[index.js](index.js)
-│──[package.json](package.json)
-│──[src](src)
-│   │──[index.js](src/index.js)
-│   └──[node](src/node)
-│       │──[binExample.js](src/node/binExample.js)
-│       │──[binHelpDoc.js](src/node/binHelpDoc.js)
-│       │──[commentToDocVariables.js](src/node/commentToDocVariables.js)
-│       │──[devHelpDoc.js](src/node/devHelpDoc.js)
-│       │──[filesToc.js](src/node/filesToc.js)
-│       │──[index.js](src/node/index.js)
-│       │──[renderFileToc.js](src/node/renderFileToc.js)
-│       └──[tpl](src/node/tpl)
-│           │──[index.js](src/node/tpl/index.js)
-│           └──[language](src/node/tpl/language)
-│               └──[index.js](src/node/tpl/language/index.js)
-└──[test](test)
-    │──[fixture](test/fixture)
-    │   └──[node](test/fixture/node)
-    └──[index.js](test/index.js) 
-```
+`[.](.)`
+`│──[LICENSE](LICENSE)`
+`│──[README.md](README.md)`
+`│──[README_zh.md](README_zh.md)`
+`│──[bin](bin)`
+`│   └──[build-readme.js](bin/build-readme.js)`
+`│──[index.js](index.js)`
+`│──[package.json](package.json)`
+`│──[src](src)`
+`│   │──[index.js](src/index.js)`
+`│   └──[node](src/node)`
+`│       │──[binExample.js](src/node/binExample.js)`
+`│       │──[binHelpDoc.js](src/node/binHelpDoc.js)`
+`│       │──[commentToDocVariables.js](src/node/commentToDocVariables.js)`
+`│       │──[devHelpDoc.js](src/node/devHelpDoc.js)`
+`│       │──[filesToc.js](src/node/filesToc.js)`
+`│       │──[index.js](src/node/index.js)`
+`│       │──[renderFileToc.js](src/node/renderFileToc.js)`
+`│       └──[tpl](src/node/tpl)`
+`│           │──[index.js](src/node/tpl/index.js)`
+`│           └──[language](src/node/tpl/language)`
+`│               └──[index.js](src/node/tpl/language/index.js)`
+`└──[test](test)`
+`    │──[fixture](test/fixture)`
+`    │   └──[node](test/fixture/node)`
+`    └──[index.js](test/index.js)` 
 
 
 ### run tests

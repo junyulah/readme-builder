@@ -8,10 +8,10 @@ let readdir = promisify(fs.readdir);
 let stat = promisify(fs.stat);
 
 let getFilesToc = (filesTree, nameHandler) => {
-    return getFileLines(filesTree, 0, nameHandler).join('\n');
+    return getFileLines(filesTree, nameHandler, 0).join('\n');
 };
 
-let getFileLines = (file, depth = 0, nameHandler = id) => {
+let getFileLines = (file, nameHandler = id, depth = 0) => {
     let {
         name,
         type,
@@ -30,7 +30,7 @@ let getFileLines = (file, depth = 0, nameHandler = id) => {
     } else if (type === 'directory') {
         let nextDepth = ++depth;
 
-        let nexts = files.map((file) => getFileLines(file, nextDepth, nameHandler));
+        let nexts = files.map((file) => getFileLines(file, nameHandler, nextDepth));
 
         let lines = nexts.reduce((prev, next, index) => {
             let space = index === nexts.length - 1 ? unitSpace : connectSpace;
@@ -100,5 +100,6 @@ let id = v => v;
 
 module.exports = {
     getFilesToc,
-    filesTree
+    filesTree,
+    getFileLines
 };
