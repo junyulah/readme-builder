@@ -2,7 +2,7 @@
 
 let {langs, getLang} = require('./language');
 
-let {getFileLines} = require('../filesToc');
+let {getFilesToc} = require('../filesToc');
 
 let path = require('path');
 
@@ -61,9 +61,11 @@ ${text}
 
 ### ${lang('file structure')}
 
-${getFileLines(devHelpers.filesTree, (name, file) => {
+\`\`\`
+${getFilesToc(devHelpers.filesTree, (name, file) => {
     return `[${name}](${path.relative(projectDir, file.path) || '.'})`;
-}).map((line) => `\`${line}\``).join('\n')} 
+})} 
+\`\`\`
 
 ${testText? `
 ### ${lang('run tests')}
