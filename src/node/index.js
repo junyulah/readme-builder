@@ -52,7 +52,8 @@ let collect = (projectDir, pattern) => {
             license,
             binHelpers,
             devHelpers,
-            comments: commentToDocVariables(comments)
+            comments: commentToDocVariables(comments),
+            projectDir
         };
     });
 };
