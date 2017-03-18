@@ -23,7 +23,8 @@ let getDoc = ({
     comments = {},
     binHelpers = [],
     devHelpers = {},
-    projectDir
+    projectDir,
+    binQuickRunInfos = []
 }, lang, langTypes) => {
     let testText = getTestText(packageJson);
 
@@ -42,7 +43,7 @@ ${lang('Install on global')}, ${lang('using')} \`npm i ${packageJson.name} -g\`
 ${comments.rawReadDocs? comments.rawReadDocs.map(({text}) => text).join('\n') : ''}
 
 ## usage
-
+${renderBinQuickRuns(binQuickRunInfos, lang)}
 ${binHelpers.length? `### ${lang('bin options')}\n`: ''}
 ${binHelpers.map(({name, text}) => {
     return `- ${name}
@@ -71,6 +72,26 @@ ${testText? `
 ${license?`## ${lang('license')}
 
 ${license}` : ''}`;
+};
+
+let renderBinQuickRuns = (binQuickRunInfos, lang) => {
+    return `
+${binQuickRunInfos.length? `### ${lang('bin quick run')}`: ''}
+
+${binQuickRunInfos.map((infos) => {
+    return infos.map(({binName, testInfos}) => {
+        return `- ${binName}
+
+${testInfos.map(({binCode, stdouts}) => {
+    return `\`\`\`shell
+${binCode.split('\n').map(line => `$  ${line}`).join('\n')}
+
+${stdouts && stdouts.trim()? stdouts: ''}
+\`\`\``;
+})}
+`;
+    }).join('\n');
+})}`;
 };
 
 let getTestText = (packageJson) => {

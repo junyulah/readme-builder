@@ -18,6 +18,8 @@ let binHelpDoc = require('./binHelpDoc');
 
 let devHelpDoc = require('./devHelpDoc');
 
+let binExampleDoc = require('./binExampleDoc');
+
 let readFile = promisify(fs.readFile);
 let stat = promisify(fs.stat);
 
@@ -46,15 +48,26 @@ let collect = (projectDir, pattern) => {
         getComments(projectDir, pattern),
         binHelpDoc(projectDir),
         devHelpDoc(projectDir)
-    ]).then(([packageJson, license, comments, binHelpers, devHelpers]) => {
-        return {
-            packageJson,
-            license,
-            binHelpers,
-            devHelpers,
-            comments: commentToDocVariables(comments),
+    ]).then(([packageJson, license, commentsContent, binHelpers, devHelpers]) => {
+        let comments = commentToDocVariables(commentsContent, {
             projectDir
-        };
+        });
+
+        return binExampleDoc({
+            projectDir,
+            comments,
+            packageJson
+        }).then((binExamples) => {
+            return {
+                packageJson,
+                license,
+                binHelpers,
+                devHelpers,
+                projectDir,
+                comments,
+                binQuickRunInfos: binExamples.map(({quickRunInfos}) => quickRunInfos)
+            };
+        });
     });
 };
 
@@ -76,10 +89,12 @@ let getLicense = (projectDir) => {
     });
 };
 
-let getComments = (projectDir, pattern = '!(node_modules)**/*.js') => {
+let getComments = (projectDir, pattern = '**/*') => {
     return new Promise((resolve, reject) => {
         glob(pattern, {
-            cwd: projectDir
+            cwd: projectDir,
+            nodir: true,
+            ignore: 'node_modules/**/*'
         }, (err, files) => {
             if (err) {
                 reject(err);

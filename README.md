@@ -10,9 +10,23 @@
 
 Install on global, using `npm i readme-builder -g`
 
+## goal
 
+our goal is blah blah...
+
+## test
 
 ## usage
+
+### bin quick run
+
+- buildreadme
+
+```shell
+$  cd ../test/fixture/node/p0
+
+
+```
 
 ### bin options
 
@@ -50,13 +64,12 @@ Options:
 │──src
 │   │──index.js
 │   └──node
-│       │──binExample.js
+│       │──binExampleDoc.js
 │       │──binHelpDoc.js
 │       │──commentToDocVariables.js
 │       │──devHelpDoc.js
 │       │──filesToc.js
 │       │──index.js
-│       │──renderFileToc.js
 │       └──tpl
 │           │──index.js
 │           └──language

@@ -2,6 +2,16 @@
 
 'use strict';
 
+/**
+ * @readme-quick-run
+ *
+ * ## test tar=bash
+ *
+ * cd ../test/fixture/node/p0
+ * npm i readme-builder --save
+ * ./node_modules/.bin/buildreadme
+ */
+
 let fs = require('fs');
 let promisify = require('es6-promisify');
 let path = require('path');
@@ -35,6 +45,8 @@ docBuilder({
             })
         );
     } else {
-        console.log(readmeStr); // eslint-disable-line
+        console.log(readmeMap.en); // eslint-disable-line
     }
+}).catch(err => {
+    console.log(err.stack); // eslint-disable-line
 });
