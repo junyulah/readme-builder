@@ -24,6 +24,8 @@ let readFile = promisify(fs.readFile);
 let stat = promisify(fs.stat);
 
 /**
+ * get readme doc options from package.json
+ *
  * step1: collect information from project root directory
  *
  * step2: render doc according to tpl and information
@@ -34,21 +36,31 @@ let stat = promisify(fs.stat);
 
 module.exports = ({
     projectDir,
-    docTpl,
-    pattern
 }) => {
-    tpl = docTpl || tpl;
-    return collect(projectDir, pattern).then(tpl);
+    return getPackageJson(projectDir).then((packageJson) => {
+        let {
+            docTpl
+        } = packageJson.readmeDocOptions || {};
+
+        if (docTpl) {
+            tpl = require(path.resolve(projectDir, docTpl));
+        }
+
+        return collect(projectDir, packageJson).then(tpl);
+    });
 };
 
-let collect = (projectDir, pattern) => {
+let collect = (projectDir, packageJson) => {
+    let {
+        pattern, ignores
+    } = packageJson.readmeDocOptions || {};
+
     return Promise.all([
-        getPackageJson(projectDir),
         getLicense(projectDir),
-        getComments(projectDir, pattern),
+        getComments(projectDir, pattern, ignores),
         binHelpDoc(projectDir),
         devHelpDoc(projectDir)
-    ]).then(([packageJson, license, commentsContent, binHelpers, devHelpers]) => {
+    ]).then(([license, commentsContent, binHelpers, devHelpers]) => {
         let comments = commentToDocVariables(commentsContent, {
             projectDir
         });
@@ -65,7 +77,9 @@ let collect = (projectDir, pattern) => {
                 devHelpers,
                 projectDir,
                 comments,
-                binQuickRunInfos: binExamples.map(({quickRunInfos}) => quickRunInfos)
+                binQuickRunInfos: binExamples.map(({
+                    quickRunInfos
+                }) => quickRunInfos)
             };
         });
     });
@@ -89,12 +103,12 @@ let getLicense = (projectDir) => {
     });
 };
 
-let getComments = (projectDir, pattern = '**/*') => {
+let getComments = (projectDir, pattern = '**/*', ignores = ['**/*/node_modules/**/*', 'node_modules/**/*']) => {
     return new Promise((resolve, reject) => {
         glob(pattern, {
             cwd: projectDir,
             nodir: true,
-            ignore: 'node_modules/**/*'
+            ignore: ignores
         }, (err, files) => {
             if (err) {
                 reject(err);

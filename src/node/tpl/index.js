@@ -28,6 +28,8 @@ let getDoc = ({
 }, lang, langTypes) => {
     let testText = getTestText(packageJson);
 
+    console.log(comments.rawReadDocs);
+
     return `# ${packageJson.name}
 
 ${packageJson.description}

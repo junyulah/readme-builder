@@ -10,14 +10,7 @@
 
 Install on global, using `npm i readme-builder -g`
 
-## goal
 
-our goal is blah blah...
-## goal
-
-our goal is blah blah...
-
-## test
 
 ## usage
 
