@@ -8,7 +8,6 @@
  * ## test tar=bash
  *
  * cd ../test/fixture/node/p0
- * npm i readme-builder --save
  * ./node_modules/.bin/buildreadme
  */
 

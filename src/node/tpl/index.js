@@ -83,9 +83,15 @@ ${binQuickRunInfos.map((infos) => {
         return `- ${binName}
 
 ${testInfos.map(({binCode, stdouts}) => {
-    return `\`\`\`shell
-${binCode.split('\n').map(line => `$  ${line}`).join('\n')}
+    return `${lang('commands')}
 
+\`\`\`shell
+${binCode.split('\n').map(line => `$  ${line}`).join('\n')}
+\`\`\`
+
+${lang('output')}
+
+\`\`\`
 ${stdouts && stdouts.trim()? stdouts: ''}
 \`\`\``;
 })}
@@ -97,6 +103,6 @@ ${stdouts && stdouts.trim()? stdouts: ''}
 let getTestText = (packageJson) => {
     let scripts = packageJson.scripts || {};
     let test = scripts.test;
-    if(test==='echo \"Error: no test specified\" && exit 1') return '';
+    if(test === 'echo \"Error: no test specified\" && exit 1') return '';
     return test;
 };

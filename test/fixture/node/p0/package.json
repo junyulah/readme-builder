@@ -7,7 +7,7 @@
     "test": "mocha 'test/**/*.js'"
   },
   "bin": {
-      "test": "./bin/test.sh"
+    "test": "./bin/test.sh"
   },
   "keywords": [
     "test",
@@ -15,5 +15,8 @@
     "project"
   ],
   "author": "ddchen",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "readme-builder": "0.0.3"
+  }
 }
