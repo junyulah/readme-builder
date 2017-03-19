@@ -43,7 +43,10 @@ let runBinQuickRun = ({
 }, binPath) => {
     let testFile = path.join(path.dirname(binPath), `${uuidV4()}.js`);
     let destFile = path.join(path.dirname(binPath), `${uuidV4()}.js`);
-    return runTestsWithParsedCode(test.resultCode, test.testCode, destFile, testFile).then((rets) => {
+
+    return runTestsWithParsedCode(test.resultCode, test.testCode, destFile, testFile, {
+        silent: true
+    }).then((rets) => {
         return del([testFile, destFile], {
             force: true
         }).then(() => {
