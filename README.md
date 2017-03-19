@@ -145,16 +145,18 @@ Options:
 │──src
 │   │──index.js
 │   └──node
-│       │──binExampleDoc.js
-│       │──binHelpDoc.js
-│       │──commentToDocVariables.js
-│       │──devHelpDoc.js
+│       │──collector
+│       │   │──binHelpers.js
+│       │   │──commentsContent.js
+│       │   │──devHelpers.js
+│       │   │──index.js
+│       │   └──license.js
 │       │──filesToc.js
 │       │──index.js
-│       └──tpl
-│           │──index.js
-│           └──language
-│               └──index.js
+│       └──processor
+│           │──binExampleDoc.js
+│           │──commentToDocVariables.js
+│           └──index.js
 └──test
     │──fixture
     │   └──node
