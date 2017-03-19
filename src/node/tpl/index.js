@@ -91,9 +91,10 @@ ${binCode.split('\n').map(line => `$  ${line}`).join('\n')}
 
 ${lang('output')}
 
-\`\`\`
-${stdouts && stdouts.trim()? JSON.stringify(stdouts): ''}
-\`\`\``;
+${stdouts && stdouts.trim()? `<pre>
+${stdouts}
+</pre>`: ''}
+`;
 })}
 `;
     }).join('\n');

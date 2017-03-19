@@ -34,9 +34,87 @@ $  ./node_modules/.bin/buildreadme
 
 output
 
+<pre>
+# test-p0
+
+test p0 project
+
+[中文文档](./README_zh.md)   [document](./README.md)
+
+## install
+
+`npm i test-p0 --save` or `npm i test-p0 --save-dev`
+
+Install on global, using `npm i test-p0 -g`
+
+## goal
+
+our goal is blah blah...
+
+## usage
+
+### bin quick run
+
+
+### bin options
+
+- test
+
+```shell
+
+$ ./node_modules/test-p0/bin/test -h
+
+test -h
+      --a  a
+      --b  b
+
 ```
-"# test-p0\n\ntest p0 project\n\n[中文文档](./README_zh.md)   [document](./README.md)\n\n## install\n\n`npm i test-p0 --save` or `npm i test-p0 --save-dev`\n\nInstall on global, using `npm i test-p0 -g`\n\n## goal\n\nour goal is blah blah...\n\n## usage\n\n### bin quick run\n\n\n### bin options\n\n- test\n\n```shell\n\n$ ./node_modules/test-p0/bin/test -h\n\ntest -h\n      --a  a\n      --b  b\n\n```\n\n## develop\n\n### file structure\n\n```\n.\n│──LICENSE\n│──bin\n│   └──test.sh\n│──index.js\n└──package.json \n```\n\n\n### run tests\n\n`npm test`\n\n## license\n\nMIT License\n\nCopyright (c) 2017 chenjunyu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE.\n\n"
+
+## develop
+
+### file structure
+
 ```
+.
+│──LICENSE
+│──bin
+│   └──test.sh
+│──index.js
+└──package.json 
+```
+
+
+### run tests
+
+`npm test`
+
+## license
+
+MIT License
+
+Copyright (c) 2017 chenjunyu
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+
+</pre>
+
 
 ### bin 选项
 
