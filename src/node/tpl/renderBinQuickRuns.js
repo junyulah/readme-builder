@@ -19,7 +19,7 @@ ${binCode.split('\n').map(line => `$  ${line}`).join('\n')}
 ${stdouts && stdouts.trim()? `<pre>
 ${lang('output')}
 
-${stdouts.trim().split('\n').map((line) => `<span>${line}</span>`).join('\n')}
+${stdouts.trim().split('\n').map((line) => `    ${line}`).join('\n')}
 
 </pre>`: ''}
 `;

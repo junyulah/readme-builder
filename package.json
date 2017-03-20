@@ -4,7 +4,7 @@
   "description": " A simple tool used to generate read me doc for project",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec 'test/**/*.js'"
+    "test": "mocha --reporter spec 'test/index.js'"
   },
   "repository": {
     "type": "git",

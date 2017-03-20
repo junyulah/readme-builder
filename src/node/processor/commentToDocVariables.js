@@ -28,12 +28,9 @@ module.exports = (comments = [], {
                     pre.rawReadDocs = pre.rawReadDocs || [];
                     pre.rawReadDocs.push(rawReadDoc);
                 } else {
-                    let quickRunDoc = getPara(readMeQuickRunPrefix, lines, firstIndex, file);
+                    let quickRunDoc = getQuickRunDoc(lines, firstIndex, readMeQuickRunPrefix, file, projectDir, block);
 
                     if (quickRunDoc) {
-                        quickRunDoc.test = testParser([block], path.resolve(projectDir, file));
-                        quickRunDoc.testDescription = getTestDescription(quickRunDoc.text);
-
                         pre.quickRunDocs = pre.quickRunDocs || [];
                         pre.quickRunDocs.push(quickRunDoc);
                     }
@@ -43,6 +40,17 @@ module.exports = (comments = [], {
             return pre;
         }, prev);
     }, {});
+};
+
+let getQuickRunDoc = (lines, firstIndex, readMeQuickRunPrefix, file, projectDir, block) => {
+    let quickRunDoc = getPara(readMeQuickRunPrefix, lines, firstIndex, file);
+
+    if (quickRunDoc) {
+        quickRunDoc.test = testParser([block], path.resolve(projectDir, file));
+        quickRunDoc.testDescription = getTestDescription(quickRunDoc.text);
+
+        return quickRunDoc;
+    }
 };
 
 let getTestDescription = (text) => {
