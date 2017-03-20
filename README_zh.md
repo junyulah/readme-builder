@@ -35,86 +35,89 @@ $  cd ../test/fixture/node/p0
 $  ./node_modules/.bin/buildreadme
 ```
 
-<pre>输出</pre>
+<pre>
+输出
 
-<pre># test-p0</pre>
-<pre></pre>
-<pre>test p0 project</pre>
-<pre></pre>
-<pre>[中文文档](./README_zh.md)   [document](./README.md)</pre>
-<pre></pre>
-<pre>## install</pre>
-<pre></pre>
-<pre>`npm i test-p0 --save` or `npm i test-p0 --save-dev`</pre>
-<pre></pre>
-<pre>Install on global, using `npm i test-p0 -g`</pre>
-<pre></pre>
-<pre>## goal</pre>
-<pre></pre>
-<pre>our goal is blah blah...</pre>
-<pre></pre>
-<pre>## usage</pre>
-<pre></pre>
-<pre>### bin quick run</pre>
-<pre></pre>
-<pre></pre>
-<pre>### bin options</pre>
-<pre></pre>
-<pre>- test</pre>
-<pre></pre>
-<pre>```shell</pre>
-<pre></pre>
-<pre>$ ./node_modules/test-p0/bin/test -h</pre>
-<pre></pre>
-<pre>test -h</pre>
-<pre>      --a  a</pre>
-<pre>      --b  b</pre>
-<pre></pre>
-<pre>```</pre>
-<pre></pre>
-<pre>## develop</pre>
-<pre></pre>
-<pre>### file structure</pre>
-<pre></pre>
-<pre>```</pre>
-<pre>.</pre>
-<pre>│──LICENSE</pre>
-<pre>│──README.md</pre>
-<pre>│──README_zh.md</pre>
-<pre>│──bin</pre>
-<pre>│   └──test.sh</pre>
-<pre>│──index.js</pre>
-<pre>└──package.json </pre>
-<pre>```</pre>
-<pre></pre>
-<pre></pre>
-<pre>### run tests</pre>
-<pre></pre>
-<pre>`npm test`</pre>
-<pre></pre>
-<pre>## license</pre>
-<pre></pre>
-<pre>MIT License</pre>
-<pre></pre>
-<pre>Copyright (c) 2017 chenjunyu</pre>
-<pre></pre>
-<pre>Permission is hereby granted, free of charge, to any person obtaining a copy</pre>
-<pre>of this software and associated documentation files (the "Software"), to deal</pre>
-<pre>in the Software without restriction, including without limitation the rights</pre>
-<pre>to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</pre>
-<pre>copies of the Software, and to permit persons to whom the Software is</pre>
-<pre>furnished to do so, subject to the following conditions:</pre>
-<pre></pre>
-<pre>The above copyright notice and this permission notice shall be included in all</pre>
-<pre>copies or substantial portions of the Software.</pre>
-<pre></pre>
-<pre>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</pre>
-<pre>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</pre>
-<pre>FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</pre>
-<pre>AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</pre>
-<pre>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</pre>
-<pre>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</pre>
-<pre>SOFTWARE.</pre>
+<span># test-p0</span>
+<span></span>
+<span>test p0 project</span>
+<span></span>
+<span>[中文文档](./README_zh.md)   [document](./README.md)</span>
+<span></span>
+<span>## install</span>
+<span></span>
+<span>`npm i test-p0 --save` or `npm i test-p0 --save-dev`</span>
+<span></span>
+<span>Install on global, using `npm i test-p0 -g`</span>
+<span></span>
+<span>## goal</span>
+<span></span>
+<span>our goal is blah blah...</span>
+<span></span>
+<span>## usage</span>
+<span></span>
+<span>### bin quick run</span>
+<span></span>
+<span></span>
+<span>### bin options</span>
+<span></span>
+<span>- test</span>
+<span></span>
+<span>```shell</span>
+<span></span>
+<span>$ ./node_modules/test-p0/bin/test -h</span>
+<span></span>
+<span>test -h</span>
+<span>      --a  a</span>
+<span>      --b  b</span>
+<span></span>
+<span>```</span>
+<span></span>
+<span>## develop</span>
+<span></span>
+<span>### file structure</span>
+<span></span>
+<span>```</span>
+<span>.</span>
+<span>│──LICENSE</span>
+<span>│──README.md</span>
+<span>│──README_zh.md</span>
+<span>│──bin</span>
+<span>│   └──test.sh</span>
+<span>│──index.js</span>
+<span>└──package.json </span>
+<span>```</span>
+<span></span>
+<span></span>
+<span>### run tests</span>
+<span></span>
+<span>`npm test`</span>
+<span></span>
+<span>## license</span>
+<span></span>
+<span>MIT License</span>
+<span></span>
+<span>Copyright (c) 2017 chenjunyu</span>
+<span></span>
+<span>Permission is hereby granted, free of charge, to any person obtaining a copy</span>
+<span>of this software and associated documentation files (the "Software"), to deal</span>
+<span>in the Software without restriction, including without limitation the rights</span>
+<span>to use, copy, modify, merge, publish, distribute, sublicense, and/or sell</span>
+<span>copies of the Software, and to permit persons to whom the Software is</span>
+<span>furnished to do so, subject to the following conditions:</span>
+<span></span>
+<span>The above copyright notice and this permission notice shall be included in all</span>
+<span>copies or substantial portions of the Software.</span>
+<span></span>
+<span>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR</span>
+<span>IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,</span>
+<span>FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE</span>
+<span>AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER</span>
+<span>LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,</span>
+<span>OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE</span>
+<span>SOFTWARE.</span>
+
+</pre>
 
 
 write result to readme.md, just add `-w` option
