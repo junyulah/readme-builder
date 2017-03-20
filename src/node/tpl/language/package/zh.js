@@ -7,5 +7,7 @@ module.exports = {
     'run tests': '运行测试用例',
     'license': '许可证',
     'develop': '开发',
-    'file structure': '文件结构'
+    'file structure': '文件结构',
+    'usage': '使用方法',
+    'bin quick run': '快速运行工具'
 };

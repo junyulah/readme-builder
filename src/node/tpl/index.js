@@ -28,8 +28,6 @@ let getDoc = ({
 }, lang, langTypes) => {
     let testText = getTestText(packageJson);
 
-    console.log(comments.rawReadDocs);
-
     return `# ${packageJson.name}
 
 ${packageJson.description}
@@ -81,8 +79,10 @@ let renderBinQuickRuns = (binQuickRunInfos, lang) => {
 ${binQuickRunInfos.length? `### ${lang('bin quick run')}`: ''}
 
 ${binQuickRunInfos.map((infos) => {
-    return infos.map(({binName, testInfos}) => {
+    return infos.map(({binName, testInfos, testDescription}) => {
         return `- ${binName}
+
+${testDescription}
 
 ${testInfos.map(({binCode, stdouts}) => {
     return `${lang('commands')}

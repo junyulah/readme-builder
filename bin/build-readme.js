@@ -5,6 +5,8 @@
 /**
  * @readme-quick-run
  *
+ * run buildreadme in your project root
+ *
  * ## test tar=bash
  *
  * cd ../test/fixture/node/p0

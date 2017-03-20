@@ -27,10 +27,12 @@ module.exports = (comments = [], {
                     pre.rawReadDocs = pre.rawReadDocs || [];
                     pre.rawReadDocs.push(rawReadDoc);
                 } else {
+                    // TODO get description of quick run
                     let quickRunDoc = getPara(readMeQuickRunPrefix, lines, firstIndex, file);
 
                     if (quickRunDoc) {
                         quickRunDoc.test = testParser(comment, path.resolve(projectDir, file));
+                        quickRunDoc.testDescription = quickRunDoc.text.split(/#+\s*test/)[0].trim();
                         pre.quickRunDocs = pre.quickRunDocs || [];
                         pre.quickRunDocs.push(quickRunDoc);
                     }

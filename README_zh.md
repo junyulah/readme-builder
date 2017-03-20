@@ -14,9 +14,11 @@ Install on global, 使用 `npm i readme-builder -g`
 
 ## usage
 
-### bin quick run
+### 快速运行工具
 
 - buildreadme
+
+run buildreadme in your project root
 
 commands
 
@@ -70,6 +72,8 @@ test -h
 ```
 .
 │──LICENSE
+│──README.md
+│──README_zh.md
 │──bin
 │   └──test.sh
 │──index.js
@@ -154,7 +158,7 @@ Options:
 │       │──filesToc.js
 │       │──index.js
 │       └──processor
-│           │──binExampleDoc.js
+│           │──binQuickRunInfos.js
 │           │──commentToDocVariables.js
 │           └──index.js
 └──test

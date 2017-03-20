@@ -11,31 +11,32 @@ let {
 /**
  * generate bin tool example
  */
-module.exports = ({
-    projectDir,
-    comments,
-    packageJson
+module.exports = (projectDir, packageJson, {
+    comments
 }) => {
     let bins = packageJson.bin;
 
     return Promise.all(Object.keys(bins).map((name) => {
         let binPath = path.resolve(projectDir, bins[name]);
 
-        let quickRuns = getQuickRuns(comments.quickRunDocs || [], projectDir, binPath);
+        let quickRuns = filterBinQuickRuns(comments.quickRunDocs || [], projectDir, binPath);
 
         return Promise.all(quickRuns.map((quick) => runBinQuickRun(quick, binPath).then((testInfos) => {
             return {
                 binName: name,
                 binPath,
                 binRelativePath: bins[name],
-                testInfos
+                testInfos,
+                testDescription: quick.testDescription
             };
         }))).then((quickRunInfos) => {
-            return {
-                quickRunInfos
-            };
+            return quickRunInfos;
         });
-    }));
+    })).then((list) => {
+        return list.map((
+            quickRunInfos
+        ) => quickRunInfos);
+    });
 };
 
 let runBinQuickRun = ({
@@ -74,7 +75,7 @@ let runBinQuickRun = ({
     });
 };
 
-let getQuickRuns = (comments, basedir, target) => {
+let filterBinQuickRuns = (comments, basedir, target) => {
     return comments.filter(({
         file
     }) => {

@@ -18,6 +18,8 @@ Install on global, using `npm i readme-builder -g`
 
 - buildreadme
 
+run buildreadme in your project root
+
 commands
 
 ```shell
@@ -70,6 +72,8 @@ test -h
 ```
 .
 │──LICENSE
+│──README.md
+│──README_zh.md
 │──bin
 │   └──test.sh
 │──index.js
@@ -154,7 +158,7 @@ Options:
 │       │──filesToc.js
 │       │──index.js
 │       └──processor
-│           │──binExampleDoc.js
+│           │──binQuickRunInfos.js
 │           │──commentToDocVariables.js
 │           └──index.js
 └──test
