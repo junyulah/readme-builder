@@ -4,8 +4,6 @@ let {langs, getLang} = require('./language');
 
 let {getFilesToc} = require('../filesToc');
 
-var toc = require('markdown-toc');
-
 let renderBinQuickRuns = require('./renderBinQuickRuns');
 
 let langGuideMap = {
@@ -24,13 +22,21 @@ module.exports = (opts) => {
 let getDoc = (options, lang, langTypes) => {
     let packageJson = options.packageJson;
     let bodyText = getDocBody(options, lang);
-    let tocContent = toc(bodyText).content;
 
     return `# ${packageJson.name}
 ${langTypes.map((type) => type === 'en'? `[${langGuideMap[type]}](./README.md)`: `[${langGuideMap[type]}](./README_${type}.md)`).join('   ')}
 
 ${packageJson.description}
-${tocContent}
+
+* [install](#install)
+* [usage](#usage)
+  + [quick run CLI](#quick-run-cli)
+  + [CLI options](#cli-options)
+* [develop](#develop)
+  + [file structure](#file-structure)
+  + [run tests](#run-tests)
+* [license](#license)
+
 ${bodyText}`;
 };
 

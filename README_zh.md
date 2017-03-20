@@ -2,18 +2,16 @@
 [中文文档](./README_zh.md)   [document](./README.md)
 
  A simple tool used to generate read me doc for project
-- [安装](#%E5%AE%89%E8%A3%85)
-- [使用方法](#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95)
-  * [快速运行命令行工具](#%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%B7%A5%E5%85%B7)
-- [develop](#develop)
-  * [file structure](#file-structure)
-  * [run tests](#run-tests)
-- [license](#license)
-  * [CLI 选项](#cli-%E9%80%89%E9%A1%B9)
-- [开发](#%E5%BC%80%E5%8F%91)
-  * [文件结构](#%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84)
-  * [运行测试用例](#%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B)
-- [许可证](#%E8%AE%B8%E5%8F%AF%E8%AF%81)
+
+* [install](#install)
+* [usage](#usage)
+  + [quick run CLI](#quick-run-cli)
+  + [CLI options](#cli-options)
+* [develop](#develop)
+  + [file structure](#file-structure)
+  + [run tests](#run-tests)
+* [license](#license)
+
 
 ## 安装
 
@@ -40,89 +38,10 @@ $  ./node_modules/.bin/buildreadme
 ```
 
 <pre>
-```
 输出
 
-# test-p0
+"# test-p0\n\ntest p0 project\n\n[中文文档](./README_zh.md)   [document](./README.md)\n\n## install\n\n`npm i test-p0 --save` or `npm i test-p0 --save-dev`\n\nInstall on global, using `npm i test-p0 -g`\n\n## goal\n\nour goal is blah blah...\n\n## usage\n\n### bin quick run\n\n\n### bin options\n\n- test\n\n```shell\n\n$ ./node_modules/test-p0/bin/test -h\n\ntest -h\n      --a  a\n      --b  b\n\n```\n\n## develop\n\n### file structure\n\n```\n.\n│──LICENSE\n│──README.md\n│──README_zh.md\n│──bin\n│   └──test.sh\n│──index.js\n└──package.json \n```\n\n\n### run tests\n\n`npm test`\n\n## license\n\nMIT License\n\nCopyright (c) 2017 chenjunyu\n\nPermission is hereby granted, free of charge, to any person obtaining a copy\nof this software and associated documentation files (the \"Software\"), to deal\nin the Software without restriction, including without limitation the rights\nto use, copy, modify, merge, publish, distribute, sublicense, and/or sell\ncopies of the Software, and to permit persons to whom the Software is\nfurnished to do so, subject to the following conditions:\n\nThe above copyright notice and this permission notice shall be included in all\ncopies or substantial portions of the Software.\n\nTHE SOFTWARE IS PROVIDED \"AS IS\", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR\nIMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,\nFITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE\nAUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER\nLIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,\nOUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE\nSOFTWARE."
 
-test p0 project
-
-[中文文档](./README_zh.md)   [document](./README.md)
-
-## install
-
-`npm i test-p0 --save` or `npm i test-p0 --save-dev`
-
-Install on global, using `npm i test-p0 -g`
-
-## goal
-
-our goal is blah blah...
-
-## usage
-
-### bin quick run
-
-
-### bin options
-
-- test
-
-```shell
-
-$ ./node_modules/test-p0/bin/test -h
-
-test -h
-      --a  a
-      --b  b
-
-```
-
-## develop
-
-### file structure
-
-```
-.
-│──LICENSE
-│──README.md
-│──README_zh.md
-│──bin
-│   └──test.sh
-│──index.js
-└──package.json 
-```
-
-
-### run tests
-
-`npm test`
-
-## license
-
-MIT License
-
-Copyright (c) 2017 chenjunyu
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-```
 </pre>
 
 

@@ -17,12 +17,10 @@ ${binCode.split('\n').map(line => `$  ${line}`).join('\n')}
 \`\`\`
 
 ${stdouts && stdouts.trim()? `<pre>
-\`\`\`
 ${lang('output')}
 
-${stdouts.trim()}
+${JSON.stringify(stdouts.trim())}
 
-\`\`\`
 </pre>`: ''}
 `;
 }).join('\n\n')}
