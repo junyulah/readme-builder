@@ -2,24 +2,17 @@
 [中文文档](./README_zh.md)   [document](./README.md)
 
  A simple tool used to generate read me doc for project
-  * [install](#install)
-  * [usage](#usage)
-    + [bin quick run](#bin-quick-run)
-- [test-p0](#test-p0)
-  * [install](#install-1)
-  * [goal](#goal)
-  * [usage](#usage-1)
-    + [bin quick run](#bin-quick-run-1)
-    + [bin options](#bin-options)
-  * [develop](#develop)
-    + [file structure](#file-structure)
-    + [run tests](#run-tests)
-  * [license](#license)
-    + [bin options](#bin-options-1)
-  * [develop](#develop-1)
-    + [file structure](#file-structure-1)
-    + [run tests](#run-tests-1)
-  * [license](#license-1)
+- [install](#install)
+- [usage](#usage)
+  * [bin quick run](#bin-quick-run)
+- [develop](#develop)
+  * [file structure](#file-structure)
+  * [run tests](#run-tests)
+- [license](#license)
+- [develop](#develop-1)
+  * [file structure](#file-structure-1)
+  * [run tests](#run-tests-1)
+- [license](#license-1)
 
 ## install
 
@@ -46,6 +39,7 @@ $  ./node_modules/.bin/buildreadme
 ```
 
 <pre>
+```
 output
 
 # test-p0
@@ -128,6 +122,8 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
+
+```
 </pre>
 
 
