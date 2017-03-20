@@ -4,6 +4,10 @@ let {langs, getLang} = require('./language');
 
 let {getFilesToc} = require('../filesToc');
 
+var toc = require('markdown-toc');
+
+let renderBinQuickRuns = require('./renderBinQuickRuns');
+
 let langGuideMap = {
     'zh': '中文文档',
     'en': 'document'
@@ -17,7 +21,20 @@ module.exports = (opts) => {
     }, {});
 };
 
-let getDoc = ({
+let getDoc = (options, lang, langTypes) => {
+    let packageJson = options.packageJson;
+    let bodyText = getDocBody(options, lang);
+    let tocContent = toc(bodyText).content;
+
+    return `# ${packageJson.name}
+${langTypes.map((type) => type === 'en'? `[${langGuideMap[type]}](./README.md)`: `[${langGuideMap[type]}](./README_${type}.md)`).join('   ')}
+
+${packageJson.description}
+${tocContent}
+${bodyText}`;
+};
+
+let getDocBody = ({
     packageJson,
     license,
     comments = {},
@@ -25,15 +42,10 @@ let getDoc = ({
     devHelpers = {},
     projectDir,
     binQuickRunInfos = []
-}, lang, langTypes) => {
+}, lang) => {
     let testText = getTestText(packageJson);
 
-    return `# ${packageJson.name}
-
-${packageJson.description}
-
-${langTypes.map((type) => type === 'en'? `[${langGuideMap[type]}](./README.md)`: `[${langGuideMap[type]}](./README_${type}.md)`).join('   ')}
-
+    return `
 ## ${lang('install')}
 
 \`npm i ${packageJson.name} --save\` ${lang('or')} \`npm i ${packageJson.name} --save-dev\`
@@ -42,7 +54,7 @@ ${lang('Install on global')}, ${lang('using')} \`npm i ${packageJson.name} -g\`
 
 ${comments.rawReadDocs? comments.rawReadDocs.map(({text}) => text).join('\n') : ''}
 
-## usage
+## ${lang('usage')}
 ${renderBinQuickRuns(binQuickRunInfos, lang)}
 ${binHelpers.length? `### ${lang('bin options')}\n`: ''}
 ${binHelpers.map(({name, text}) => {
@@ -74,34 +86,6 @@ ${license?`## ${lang('license')}
 ${license}` : ''}`;
 };
 
-let renderBinQuickRuns = (binQuickRunInfos, lang) => {
-    return `
-${binQuickRunInfos.length? `### ${lang('bin quick run')}`: ''}
-
-${binQuickRunInfos.map((infos) => {
-    return infos.map(({binName, testInfos, testDescription}) => {
-        return `- ${binName}
-
-${testDescription}
-
-${testInfos.map(({binCode, stdouts}) => {
-    return `${lang('commands')}
-
-\`\`\`shell
-${binCode.split('\n').map(line => `$  ${line}`).join('\n')}
-\`\`\`
-
-${lang('output')}
-
-${stdouts && stdouts.trim()? `<pre>
-${stdouts}
-</pre>`: ''}
-`;
-})}
-`;
-    }).join('\n');
-})}`;
-};
 
 let getTestText = (packageJson) => {
     let scripts = packageJson.scripts || {};

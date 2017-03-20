@@ -1,8 +1,25 @@
 # readme-builder
+[中文文档](./README_zh.md)   [document](./README.md)
 
  A simple tool used to generate read me doc for project
-
-[中文文档](./README_zh.md)   [document](./README.md)
+  * [install](#install)
+  * [usage](#usage)
+    + [bin quick run](#bin-quick-run)
+- [test-p0](#test-p0)
+  * [install](#install-1)
+  * [goal](#goal)
+  * [usage](#usage-1)
+    + [bin quick run](#bin-quick-run-1)
+    + [bin options](#bin-options)
+  * [develop](#develop)
+    + [file structure](#file-structure)
+    + [run tests](#run-tests)
+  * [license](#license)
+    + [bin options](#bin-options-1)
+  * [develop](#develop-1)
+    + [file structure](#file-structure-1)
+    + [run tests](#run-tests-1)
+  * [license](#license-1)
 
 ## install
 
@@ -20,16 +37,17 @@ Install on global, using `npm i readme-builder -g`
 
 run buildreadme in your project root
 
-commands
 
 ```shell
+commands
+
 $  cd ../test/fixture/node/p0
 $  ./node_modules/.bin/buildreadme
 ```
 
+<pre>
 output
 
-<pre>
 # test-p0
 
 test p0 project
