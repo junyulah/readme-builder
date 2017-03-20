@@ -16,12 +16,9 @@ ${lang('commands')}
 ${binCode.split('\n').map(line => `$  ${line}`).join('\n')}
 \`\`\`
 
-${stdouts && stdouts.trim()? `<pre>
-${lang('output')}
+${stdouts && stdouts.trim()? `<pre>${lang('output')}</pre>
 
-${JSON.stringify(stdouts.trim())}
-
-</pre>`: ''}
+${stdouts.trim().split('\n').map((line) => `<pre>${line}</pre>`).join('\n')}`: ''}
 `;
 }).join('\n\n')}
 `;

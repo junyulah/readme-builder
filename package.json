@@ -26,6 +26,7 @@
     "del": "^2.2.2",
     "es6-promisify": "^5.0.0",
     "glob": "^7.1.1",
+    "markdown-toc": "^1.1.0",
     "minimatch": "^3.0.3",
     "uuid": "^3.0.1",
     "yargs": "^7.0.2"
