@@ -18,13 +18,12 @@ ${lang('commands')}
 ${binCode.split('\n').map(line => `$  ${line}`).join('\n')}
 \`\`\`
 
-${stdouts && stdouts.trim()? `<pre style="max-height:300px;overflow:scroll">
-\`\`\`
-${lang('output')}
+${stdouts && stdouts.trim()? `<pre>
+\`\`\`${lang('output')}------------------------------------
 
 ${stdouts}
 
-\`\`\`
+\`\`\`-----------------------------------------------
 </pre>`: ''}
 `;
 })}

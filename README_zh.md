@@ -38,9 +38,8 @@ $  cd ../test/fixture/node/p0
 $  ./node_modules/.bin/buildreadme
 ```
 
-<pre style="max-height:300px;overflow:scroll">
-```
-输出
+<pre>
+```输出------------------------------------
 
 # test-p0
 
@@ -123,7 +122,7 @@ SOFTWARE.
 
 
 
-```
+```-----------------------------------------------
 </pre>
 
 
