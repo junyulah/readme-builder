@@ -27,6 +27,7 @@ let getDoc = (options, lang, langTypes) => {
     let tocContent = toc(bodyText).content;
 
     return `# ${packageJson.name}
+
 ${langTypes.map((type) => type === 'en'? `[${langGuideMap[type]}](./README.md)`: `[${langGuideMap[type]}](./README_${type}.md)`).join('   ')}
 
 ${packageJson.description}
