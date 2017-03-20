@@ -38,7 +38,7 @@ $  cd ../test/fixture/node/p0
 $  ./node_modules/.bin/buildreadme
 ```
 
-<pre>
+<pre style="max-height:300px;overflow:scroll">
 ```
 output
 
