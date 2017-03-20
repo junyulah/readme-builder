@@ -32,8 +32,8 @@ run buildreadme in your project root
 ```shell
 命令
 
-$  cd ../test/fixture/node/p0
-$  ./node_modules/.bin/buildreadme
+    $  cd ../test/fixture/node/p0
+    $  ./node_modules/.bin/buildreadme
 ```
 
 <pre>
@@ -127,8 +127,8 @@ write result to readme.md, just add `-w` option
 ```shell
 命令
 
-$  cd ../test/fixture/node/p0
-$  ./node_modules/.bin/buildreadme -w
+    $  cd ../test/fixture/node/p0
+    $  ./node_modules/.bin/buildreadme -w
 ```
 
 

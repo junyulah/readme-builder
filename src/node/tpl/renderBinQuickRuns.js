@@ -13,7 +13,7 @@ ${testInfos.map(({binCode, stdouts}) => {
 \`\`\`shell
 ${lang('commands')}
 
-${binCode.split('\n').map(line => `$  ${line}`).join('\n')}
+${binCode.split('\n').map(line => `    $  ${line}`).join('\n')}
 \`\`\`
 
 ${stdouts && stdouts.trim()? `<pre>
