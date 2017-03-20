@@ -16,9 +16,10 @@ module.exports = (comments = [], {
     return comments.reduce((prev, {
         file, comment
     }) => {
-        return comment.reduce((pre, {
-            paraBlocks
-        }) => {
+        return comment.reduce((pre, block) => {
+            let {
+                paraBlocks
+            } = block;
             let lines = joinLines(paraBlocks);
             let firstIndex = getFirstTextLineIndex(lines);
             if (firstIndex !== -1) {
@@ -27,12 +28,12 @@ module.exports = (comments = [], {
                     pre.rawReadDocs = pre.rawReadDocs || [];
                     pre.rawReadDocs.push(rawReadDoc);
                 } else {
-                    // TODO get description of quick run
                     let quickRunDoc = getPara(readMeQuickRunPrefix, lines, firstIndex, file);
 
                     if (quickRunDoc) {
-                        quickRunDoc.test = testParser(comment, path.resolve(projectDir, file));
-                        quickRunDoc.testDescription = quickRunDoc.text.split(/#+\s*test/)[0].trim();
+                        quickRunDoc.test = testParser([block], path.resolve(projectDir, file));
+                        quickRunDoc.testDescription = getTestDescription(quickRunDoc.text);
+
                         pre.quickRunDocs = pre.quickRunDocs || [];
                         pre.quickRunDocs.push(quickRunDoc);
                     }
@@ -44,11 +45,20 @@ module.exports = (comments = [], {
     }, {});
 };
 
+let getTestDescription = (text) => {
+    let parts = text.split(/#+\s*test/);
+    if (parts.length < 2) {
+        return '';
+    }
+    return parts[0].trim();
+};
+
 let getPara = (prefix, lines, firstIndex, file) => {
     if (lines[firstIndex] === prefix) {
         return {
+            PREFIX: lines[firstIndex],
             file,
-            PREFIX: lines[firstIndex], text: lines.slice(firstIndex + 1).join('\n').trim()
+            text: lines.slice(firstIndex + 1).join('\n').trim()
         };
     }
 };

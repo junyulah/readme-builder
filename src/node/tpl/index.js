@@ -56,7 +56,7 @@ ${comments.rawReadDocs? comments.rawReadDocs.map(({text}) => text).join('\n') : 
 
 ## ${lang('usage')}
 ${renderBinQuickRuns(binQuickRunInfos, lang)}
-${binHelpers.length? `### ${lang('bin options')}\n`: ''}
+${binHelpers.length? `### ${lang('CLI options')}\n`: ''}
 ${binHelpers.map(({name, text}) => {
     return `- ${name}
 

@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/LoveKino/readme-builder#readme",
   "dependencies": {
-    "defcomment": "^0.2.15",
+    "defcomment": "^0.2.16",
     "del": "^2.2.2",
     "es6-promisify": "^5.0.0",
     "glob": "^7.1.1",

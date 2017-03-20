@@ -40,6 +40,8 @@ test -h
 ```
 .
 │──LICENSE
+│──README.md
+│──README_zh.md
 │──bin
 │   └──test.sh
 │──index.js

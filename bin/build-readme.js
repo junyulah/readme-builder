@@ -13,6 +13,17 @@
  * ./node_modules/.bin/buildreadme
  */
 
+/**
+ * @readme-quick-run
+ *
+ * write result to readme.md, just add `-w` option
+ *
+ * ## test tar=bash
+ *
+ * cd ../test/fixture/node/p0
+ * ./node_modules/.bin/buildreadme -w
+ */
+
 let fs = require('fs');
 let promisify = require('es6-promisify');
 let path = require('path');

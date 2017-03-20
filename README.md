@@ -4,11 +4,12 @@
  A simple tool used to generate read me doc for project
 - [install](#install)
 - [usage](#usage)
-  * [bin quick run](#bin-quick-run)
+  * [quick run CLI](#quick-run-cli)
 - [develop](#develop)
   * [file structure](#file-structure)
   * [run tests](#run-tests)
 - [license](#license)
+  * [CLI options](#cli-options)
 - [develop](#develop-1)
   * [file structure](#file-structure-1)
   * [run tests](#run-tests-1)
@@ -24,7 +25,7 @@ Install on global, using `npm i readme-builder -g`
 
 ## usage
 
-### bin quick run
+### quick run CLI
 
 - buildreadme
 
@@ -39,7 +40,8 @@ $  ./node_modules/.bin/buildreadme
 ```
 
 <pre>
-```output------------------------------------
+```
+output
 
 # test-p0
 
@@ -120,13 +122,24 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-
-
-```-----------------------------------------------
+```
 </pre>
 
 
-### bin options
+write result to readme.md, just add `-w` option
+
+
+```shell
+commands
+
+$  cd ../test/fixture/node/p0
+$  ./node_modules/.bin/buildreadme -w
+```
+
+
+
+
+### CLI options
 
 - buildreadme
 

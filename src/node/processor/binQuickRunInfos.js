@@ -23,20 +23,18 @@ module.exports = (projectDir, packageJson, {
 
         return Promise.all(quickRuns.map((quick) => runBinQuickRun(quick, binPath).then((testInfos) => {
             return {
-                binName: name,
-                binPath,
-                binRelativePath: bins[name],
                 testInfos,
-                testDescription: quick.testDescription
+                testDescription: quick.testDescription,
+                binRelativePath: bins[name]
             };
         }))).then((quickRunInfos) => {
-            return quickRunInfos;
+            return {
+                binName: name,
+                binPath,
+                quickRunInfos
+            };
         });
-    })).then((list) => {
-        return list.map((
-            quickRunInfos
-        ) => quickRunInfos);
-    });
+    }));
 };
 
 let runBinQuickRun = ({

@@ -2,13 +2,11 @@
 
 module.exports = (binQuickRunInfos, lang) => {
     return `
-${binQuickRunInfos.length? `### ${lang('bin quick run')}`: ''}
+${binQuickRunInfos.length? `### ${lang('quick run CLI')}`: ''}
 
-${binQuickRunInfos.map((infos) => {
-    return infos.map(({binName, testInfos, testDescription}) => {
-        return `- ${binName}
-
-${testDescription}
+${binQuickRunInfos.map(({quickRunInfos, binName}) => {
+    return `- ${binName}` + '\n\n' + quickRunInfos.map(({testInfos, testDescription}) => {
+        return `${testDescription}
 
 ${testInfos.map(({binCode, stdouts}) => {
     return `
@@ -19,14 +17,15 @@ ${binCode.split('\n').map(line => `$  ${line}`).join('\n')}
 \`\`\`
 
 ${stdouts && stdouts.trim()? `<pre>
-\`\`\`${lang('output')}------------------------------------
+\`\`\`
+${lang('output')}
 
-${stdouts}
+${stdouts.trim()}
 
-\`\`\`-----------------------------------------------
+\`\`\`
 </pre>`: ''}
 `;
-})}
+}).join('\n\n')}
 `;
     }).join('\n');
 })}`;
