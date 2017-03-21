@@ -15,8 +15,8 @@ let docMap = {
  * readmeBuilder({
  *     projectDir: path.resolve(__dirname, '../test/fixture/node/p0')
  * }).then((ret) => {
- *     console.log(ret.en.slice(0, 500) + '...'); // en version
- *     console.log(ret.zh.slice(0, 500) + '...'); // zh version
+ *     console.log(ret.en.slice(0, 500) + '\n......'); // en version
+ *     console.log(ret.zh.slice(0, 500) + '\n......'); // zh version
  * });
  */
 

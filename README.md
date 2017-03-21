@@ -34,7 +34,8 @@ run buildreadme in your project root
 commands
 
     $  cd ../test/fixture/node/p0
-    $  ./node_modules/.bin/buildreadme | head -c 500
+    $  ./node_modules/.bin/buildreadme | head -c 200
+    $  echo ......
 ```
 
 <pre>
@@ -52,40 +53,7 @@ output
     
     Install on global, using `npm i test-p0 -g`
     
-    ## goal
-    
-    our goal is blah blah...
-    
-    ## usage
-    
-    ### bin quick run
-    
-    
-    ### bin options
-    
-    - test
-    
-    ```shell
-    
-    $ ./node_modules/test-p0/bin/test -h
-    
-    test -h
-          --a  a
-          --b  b
-    
-    ```
-    
-    ## develop
-    
-    ### file structure
-    
-    ```
-    .
-    │──LICENSE
-    │──README.md
-    │──README_zh.md
-    │──bin
-    │   └──t
+    ## ......
 
 </pre>
 
@@ -134,8 +102,8 @@ let path = require('path');
 readmeBuilder({
     projectDir: path.resolve(__dirname, '../test/fixture/node/p0')
 }).then((ret) => {
-    console.log(ret.en.slice(0, 500) + '...'); // en version
-    console.log(ret.zh.slice(0, 500) + '...'); // zh version
+    console.log(ret.en.slice(0, 500) + '\n......'); // en version
+    console.log(ret.zh.slice(0, 500) + '\n......'); // zh version
 });
 ```
 
@@ -174,7 +142,8 @@ output
     - test
     
     
-    ### ...
+    ### 
+    ......
     # test-p0
     
     [中文文档](./README_zh.md)   [document](./README.md)
@@ -192,7 +161,8 @@ output
     
     ## 安装
     
-    `npm i test-p0 --sa...
+    `npm i test-p0 --sa
+    ......
 
 </pre>
 

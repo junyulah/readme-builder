@@ -10,7 +10,8 @@
  * ## test tar=bash
  *
  * cd ../test/fixture/node/p0
- * ./node_modules/.bin/buildreadme | head -c 500
+ * ./node_modules/.bin/buildreadme | head -c 200
+ * echo ......
  */
 
 /**
