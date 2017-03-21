@@ -172,7 +172,12 @@ output
 │   │   │   │──index.js
 │   │   │   └──license.js
 │   │   │──filesToc.js
-│   │   └──index.js
+│   │   │──index.js
+│   │   └──processor
+│   │       │──binQuickRunInfos.js
+│   │       │──commentToDocVariables.js
+│   │       │──index.js
+│   │       └──jsQuickRunInfos.js
 │   └──util
 │       └──index.js
 └──test
