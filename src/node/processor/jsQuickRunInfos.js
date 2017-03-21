@@ -26,7 +26,7 @@ module.exports = (projectDir, packageJson, {
                 return binPath === filePath;
             }) === -1;
         }).map((quickRunDoc) => {
-            return runQuickStart(quickRunDoc, projectDir);
+            return runQuickStart(quickRunDoc, projectDir, packageJson);
         })
     ).then((list = []) => {
         return list.reduce((prev, cur) => prev.concat(cur), []);
@@ -37,16 +37,20 @@ let runQuickStart = ({
     test,
     file,
     testDescription
-}, projectDir) => {
+}, projectDir, packageJson) => {
     let filePath = path.resolve(projectDir, file);
 
     return getTestInfoByRunIt(test, filePath).then((ret) => {
         return ret.cases.map(({
-            sampleString, errorMsg
+            sampleString, errorMsg, testVariables
         }) => {
+            let code = sampleString;
+            let modulePath = file === packageJson.main ? packageJson.name : `'${packageJson.name}/${file}'`;
+            code = `let ${getModuleVarName(file, testVariables)} = require('${modulePath}')\n${code}`;
+
             if (errorMsg) {
                 return {
-                    code: sampleString,
+                    code,
                     errorMsg,
                     file,
                     filePath,
@@ -54,13 +58,18 @@ let runQuickStart = ({
                 };
             } else {
                 return {
-                    code: sampleString,
-                    stdouts: ret.stdouts.join(''),
+                    code,
                     file,
                     filePath,
-                    testDescription
+                    testDescription,
+                    stdouts: ret.stdouts.join(''),
                 };
             }
         });
     });
+};
+
+let getModuleVarName = (file, testVariables) => {
+    if (testVariables.r_c) return testVariables.r_c;
+    return path.basename(file, path.extname(file));
 };

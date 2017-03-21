@@ -23,6 +23,7 @@
  *
  * cd ../test/fixture/node/p0
  * ./node_modules/.bin/buildreadme -w
+ * ls README*
  */
 
 let fs = require('fs');

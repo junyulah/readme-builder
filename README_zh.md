@@ -68,9 +68,16 @@ write result to readme.md, just add `-w` option
 
     $  cd ../test/fixture/node/p0
     $  ./node_modules/.bin/buildreadme -w
+    $  ls README*
 ```
 
+<pre>
+输出
 
+    README.md
+    README_zh.md
+
+</pre>
 
 
 ### CLI 选项
@@ -99,6 +106,7 @@ Options:
 
 
 ```js
+let readmeBuilder = require('readme-builder')
 let path = require('path');
 
 readmeBuilder({
@@ -109,37 +117,7 @@ readmeBuilder({
 });
 ```
 
-<pre>
-输出
 
-    # test-p0
-    
-    [中文文档](./README_zh.md)   [document](./README.md)
-    
-    test p0 project
-    - [install](#install)
-    - [goal](#goal)
-    - [usage](#usage)
-      * [CLI quick run](#cli-quick-run)
-      * [CLI options](#cli-options)
-    
-    ......
-    
-    
-    
-    # test-p0
-    
-    [中文文档](./README_zh.md)   [document](./README.md)
-    
-    test p0 project
-    - [安装](#%E5%AE%89%E8%A3%85)
-    - [goal](#goal)
-    - [使用方法](#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95)
-      * [命令行快速运行](#%E5%91%BD%E4%BB%
-    
-    ......
-
-</pre>
 
 ## 开发
 
