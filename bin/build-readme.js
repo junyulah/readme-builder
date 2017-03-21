@@ -11,7 +11,7 @@
  *
  * cd ../test/fixture/node/p0
  * ./node_modules/.bin/buildreadme | head -c 200
- * echo ......
+ * echo "\n\n......"
  */
 
 /**
