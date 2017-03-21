@@ -1,12 +1,9 @@
 'use strict';
 
 let path = require('path');
-let uuidV4 = require('uuid/v4');
-let del = require('del');
-
 let {
-    runTestsWithParsedCode
-} = require('defcomment');
+    getTestInfoByRunIt
+} = require('../../util');
 
 /**
  * generate bin tool example
@@ -14,7 +11,7 @@ let {
 module.exports = (projectDir, packageJson, {
     comments
 }) => {
-    let bins = packageJson.bin;
+    let bins = packageJson.bin || {};
 
     return Promise.all(Object.keys(bins).map((name) => {
         let binPath = path.resolve(projectDir, bins[name]);
@@ -23,8 +20,8 @@ module.exports = (projectDir, packageJson, {
 
         return Promise.all(quickRuns.map((quick) => runBinQuickRun(quick, binPath).then((testInfos) => {
             return {
-                testInfos,
                 testDescription: quick.testDescription,
+                testInfos,
                 binRelativePath: bins[name]
             };
         }))).then((quickRunInfos) => {
@@ -40,35 +37,22 @@ module.exports = (projectDir, packageJson, {
 let runBinQuickRun = ({
     test
 }, binPath) => {
-    let testFile = path.join(path.dirname(binPath), `${uuidV4()}.js`);
-    let destFile = path.join(path.dirname(binPath), `${uuidV4()}.js`);
-
-    return runTestsWithParsedCode(test.resultCode, test.testCode, destFile, testFile, {
-        silent: true
-    }).then((rets) => {
-        return del([testFile, destFile], {
-            force: true
-        }).then(() => {
-            return rets.cases.map(({
-                sampleString, errorMsg, result
-            }) => {
-                if (errorMsg) {
-                    return {
-                        binCode: sampleString,
-                        errorMsg
-                    };
-                } else {
-                    return {
-                        binCode: sampleString,
-                        stdouts: result.stdouts,
-                        stderrs: result.stderrs
-                    };
-                }
-            });
-        });
-    }).catch(() => {
-        return del([testFile, destFile], {
-            force: true
+    return getTestInfoByRunIt(test, binPath).then((rets) => {
+        return rets.cases.map(({
+            sampleString, errorMsg, result
+        }) => {
+            if (errorMsg) {
+                return {
+                    binCode: sampleString,
+                    errorMsg
+                };
+            } else {
+                return {
+                    binCode: sampleString,
+                    stdouts: result.stdouts,
+                    stderrs: result.stderrs
+                };
+            }
         });
     });
 };

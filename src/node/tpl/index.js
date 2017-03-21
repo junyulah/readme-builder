@@ -8,6 +8,8 @@ var toc = require('markdown-toc');
 
 let renderBinQuickRuns = require('./renderBinQuickRuns');
 
+let renderJsQuickRuns = require('./renderJsQuickRuns');
+
 let langGuideMap = {
     'zh': '中文文档',
     'en': 'document'
@@ -42,7 +44,8 @@ let getDocBody = ({
     binHelpers = [],
     devHelpers = {},
     projectDir,
-    binQuickRunInfos = []
+    binQuickRunInfos = [],
+    jsQuickRunInfos = []
 }, lang) => {
     let testText = getTestText(packageJson);
 
@@ -68,6 +71,8 @@ $ ./node_modules/${packageJson.name}/bin/${name} -h
 ${text}
 \`\`\``;
 })}
+
+${renderJsQuickRuns(jsQuickRunInfos, lang)}
 
 ## ${lang('develop')}
 

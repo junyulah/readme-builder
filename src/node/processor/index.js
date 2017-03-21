@@ -2,6 +2,13 @@
 
 let commentToDocVariables = require('./commentToDocVariables');
 let binQuickRunInfos = require('./binQuickRunInfos');
+let jsQuickRunInfos = require('./jsQuickRunInfos');
+
+let processors = {
+    binQuickRunInfos, jsQuickRunInfos
+};
+
+let processorKeys = Object.keys(processors);
 
 module.exports = (projectDir, packageJson, infos) => {
     let comments = commentToDocVariables(infos.commentsContent, {
@@ -10,12 +17,15 @@ module.exports = (projectDir, packageJson, infos) => {
 
     infos.comments = comments;
 
-    return binQuickRunInfos(projectDir, packageJson, infos).then((binQuickRunInfos) => {
-        return Object.assign(infos, {
-            packageJson,
-            projectDir,
-            comments,
-            binQuickRunInfos
-        });
+    infos.packageJson = packageJson;
+    infos.projectDir = projectDir;
+
+    return Promise.all(processorKeys.map((processorName) => {
+        return processors[processorName](projectDir, packageJson, infos);
+    })).then((list) => {
+        return Object.assign(infos, list.reduce((prev, item, index) => {
+            prev[processorKeys[index]] = item;
+            return prev;
+        }, {}));
     });
 };

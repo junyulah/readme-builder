@@ -1,8 +1,10 @@
 'use strict';
 
+let renderStdouts = require('./renderStdouts');
+
 module.exports = (binQuickRunInfos, lang) => {
     return `
-${binQuickRunInfos.length? `### ${lang('quick run CLI')}`: ''}
+${binQuickRunInfos.length? `### ${lang('CLI quick run')}`: ''}
 
 ${binQuickRunInfos.map(({quickRunInfos, binName}) => {
     return `- ${binName}` + '\n\n' + quickRunInfos.map(({testInfos, testDescription}) => {
@@ -16,16 +18,10 @@ ${lang('commands')}
 ${binCode.split('\n').map(line => `    $  ${line}`).join('\n')}
 \`\`\`
 
-${stdouts && stdouts.trim()? `<pre>
-${lang('output')}
-
-${stdouts.trim().split('\n').map((line) => `    ${line}`).join('\n')}
-
-</pre>`: ''}
+${renderStdouts(stdouts, lang)}
 `;
 }).join('\n\n')}
 `;
     }).join('\n');
 })}`;
 };
-
