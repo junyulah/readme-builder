@@ -28,6 +28,11 @@ let getTestInfoByRunIt = ({
     });
 };
 
+let testFailInformation = (sampleString, errorMsg) => {
+    return `code is : \n\n${sampleString.split('\n').map((line) => `    ${line}`).join('\n')}.\n\nError information is : ${errorMsg}`;
+};
+
 module.exports = {
-    getTestInfoByRunIt
+    getTestInfoByRunIt,
+    testFailInformation
 };

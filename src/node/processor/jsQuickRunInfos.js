@@ -2,7 +2,7 @@
 
 let path = require('path');
 let {
-    getTestInfoByRunIt
+    getTestInfoByRunIt, testFailInformation
 } = require('../../util');
 
 /**
@@ -49,13 +49,7 @@ let runQuickStart = ({
             code = `let ${getModuleVarName(file, testVariables)} = require('${modulePath}')\n${code}`;
 
             if (errorMsg) {
-                return {
-                    code,
-                    errorMsg,
-                    file,
-                    filePath,
-                    testDescription
-                };
+                throw new Error(`fail to run API quick start. ${testFailInformation(sampleString, errorMsg)}`);
             } else {
                 return {
                     code,

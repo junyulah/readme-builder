@@ -2,7 +2,7 @@
 
 let path = require('path');
 let {
-    getTestInfoByRunIt
+    getTestInfoByRunIt, testFailInformation
 } = require('../../util');
 
 /**
@@ -41,11 +41,9 @@ let runBinQuickRun = ({
         return rets.cases.map(({
             sampleString, errorMsg, result
         }) => {
+            errorMsg = errorMsg || result.stderrs;
             if (errorMsg) {
-                return {
-                    binCode: sampleString,
-                    errorMsg
-                };
+                throw new Error(`fail to run CLI quick start. ${testFailInformation(sampleString, errorMsg)}`);
             } else {
                 return {
                     binCode: sampleString,
