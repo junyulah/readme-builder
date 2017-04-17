@@ -1,6 +1,6 @@
 {
   "name": "readme-builder",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": " A simple tool used to generate read me doc for project",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/LoveKino/readme-builder#readme",
   "dependencies": {
-    "defcomment": "^0.4.8",
+    "defcomment": "^0.4.9",
     "del": "^2.2.2",
     "dir-tree-info": "0.0.2",
     "es6-promisify": "^5.0.0",
