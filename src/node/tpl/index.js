@@ -2,13 +2,13 @@
 
 let {langs, getLang} = require('./language');
 
-let {getFilesToc} = require('../filesToc');
-
 var toc = require('markdown-toc');
 
 let renderBinQuickRuns = require('./renderBinQuickRuns');
 
 let renderJsQuickRuns = require('./renderJsQuickRuns');
+
+let renderDevInfos = require('./renderDevInfos');
 
 let langGuideMap = {
     'zh': '中文文档',
@@ -37,17 +37,15 @@ ${tocContent}
 ${bodyText}`;
 };
 
-let getDocBody = ({
-    packageJson,
-    license,
-    comments = {},
-    binHelpers = [],
-    devHelpers = {},
-    projectDir,
-    binQuickRunInfos = [],
-    jsQuickRunInfos = []
-}, lang) => {
-    let testText = getTestText(packageJson);
+let getDocBody = (data, lang) => {
+    let {
+        packageJson,
+        license,
+        comments = {},
+        binHelpers = [],
+        binQuickRunInfos = [],
+        jsQuickRunInfos = []
+    } = data;
 
     return `
 ## ${lang('install')}
@@ -74,28 +72,8 @@ ${text}
 
 ${renderJsQuickRuns(jsQuickRunInfos, lang)}
 
-## ${lang('develop')}
-
-### ${lang('file structure')}
-
-\`\`\`
-${getFilesToc(devHelpers.filesTree)} 
-\`\`\`
-
-${testText? `
-### ${lang('run tests')}
-
-\`npm test\`
-`: ''}
+${renderDevInfos(data, lang)}
 ${license?`## ${lang('license')}
 
 ${license}` : ''}`;
-};
-
-
-let getTestText = (packageJson) => {
-    let scripts = packageJson.scripts || {};
-    let test = scripts.test;
-    if(test === 'echo \"Error: no test specified\" && exit 1') return '';
-    return test;
 };

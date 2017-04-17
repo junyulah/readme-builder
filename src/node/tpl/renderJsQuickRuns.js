@@ -14,7 +14,7 @@ ${code}
 \`\`\`
 
 ${renderStdouts(stdouts, lang)}`;
-}).join('\n')
+}).join('\n\n')
 }`;
 };
 

@@ -2,7 +2,7 @@
 
 let {
     filesTree
-} = require('../filesToc');
+} = require('dir-tree-info');
 
 module.exports = (projectDir) => {
     return filesTree(projectDir).then((tree) => {

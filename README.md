@@ -171,7 +171,6 @@ output
 │   │   │   │──devHelpers.js
 │   │   │   │──index.js
 │   │   │   └──license.js
-│   │   │──filesToc.js
 │   │   │──index.js
 │   │   └──processor
 │   │       │──binQuickRunInfos.js
