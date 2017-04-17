@@ -30,6 +30,7 @@ Install on global, using `npm i readme-builder -g`
 run buildreadme in your project root
 
 
+
 ```shell
 commands
 
@@ -61,6 +62,7 @@ output
 
 
 write result to readme.md, just add `-w` option
+
 
 
 ```shell
@@ -103,7 +105,7 @@ Options:
 
 ### API quick run
 
-
+quickest way to use readme builder api, just specify project directory
 
 ```js
 let readmeBuilder = require('readme-builder')
@@ -139,11 +141,11 @@ output
     
     [中文文档](./README_zh.md)   [document](./README.md)
     
-    test p0 project
+    
     - [安装](#%E5%AE%89%E8%A3%85)
     - [goal](#goal)
     - [使用方法](#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95)
-      * [命令行快速运行](#%E5%91%BD%E4%BB%
+      * [命令行快速运行](#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%
     
     ......
 
@@ -182,7 +184,9 @@ output
 └──test    
     │──fixture    
     │   └──node    
-    └──index.js     
+    └──function    
+        │──index.js    
+        └──testUtil.js     
 ```
 
 

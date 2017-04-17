@@ -1,6 +1,6 @@
 'use strict';
 
-let docBuilder = require('../src');
+let docBuilder = require('../../src');
 let path = require('path');
 
 let toc = require('markdown-toc');
@@ -17,7 +17,7 @@ describe('index', () => {
 
     it('base', () => {
         return docBuilder({
-            projectDir: path.resolve(__dirname, './fixture/node/p0')
+            projectDir: path.resolve(__dirname, '../fixture/node/p0')
         }).then(ret => {
             console.log(ret);
         });

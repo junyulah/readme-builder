@@ -7,6 +7,8 @@
  *
  * run buildreadme in your project root
  *
+ * [readme-lang:zh]在你的项目的根目录下运行buildreadme
+ *
  * ## test tar=bash
  *
  * cd ../test/fixture/node/p0
@@ -18,6 +20,8 @@
  * @readme-quick-run
  *
  * write result to readme.md, just add `-w` option
+ *
+ * [readme-lang:zh]加上-w选项把结果写入到readme文件中
  *
  * ## test tar=bash
  *

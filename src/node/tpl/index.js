@@ -10,6 +10,8 @@ let renderJsQuickRuns = require('./renderJsQuickRuns');
 
 let renderDevInfos = require('./renderDevInfos');
 
+let {getLangText} = require('../../util');
+
 let langGuideMap = {
     'zh': '中文文档',
     'en': 'document'
@@ -18,26 +20,26 @@ let langGuideMap = {
 module.exports = (opts) => {
     return langs.reduce((prev, type) => {
         let lang = getLang(type);
-        prev[type] = getDoc(opts, lang, langs);
+        prev[type] = getDoc(opts, lang, type, langs);
         return prev;
     }, {});
 };
 
-let getDoc = (options, lang, langTypes) => {
+let getDoc = (options, lang, type, langTypes) => {
     let packageJson = options.packageJson;
-    let bodyText = getDocBody(options, lang);
+    let bodyText = getDocBody(options, lang, type);
     let tocContent = toc(bodyText).content;
 
     return `# ${packageJson.name}
 
 ${langTypes.map((type) => type === 'en'? `[${langGuideMap[type]}](./README.md)`: `[${langGuideMap[type]}](./README_${type}.md)`).join('   ')}
 
-${packageJson.description}
+${getLangText(packageJson.description, type)}
 ${tocContent}
 ${bodyText}`;
 };
 
-let getDocBody = (data, lang) => {
+let getDocBody = (data, lang, type) => {
     let {
         packageJson,
         license,
@@ -57,7 +59,7 @@ ${lang('Install on global')}, ${lang('using')} \`npm i ${packageJson.name} -g\`
 ${comments.rawReadDocs? comments.rawReadDocs.map(({text}) => text).join('\n') : ''}
 
 ## ${lang('usage')}
-${renderBinQuickRuns(binQuickRunInfos, lang)}
+${renderBinQuickRuns(binQuickRunInfos, lang, type)}
 ${binHelpers.length? `### ${lang('CLI options')}\n`: ''}
 ${binHelpers.map(({name, text}) => {
     return `- ${name}
@@ -70,9 +72,9 @@ ${text}
 \`\`\``;
 })}
 
-${renderJsQuickRuns(jsQuickRunInfos, lang)}
+${renderJsQuickRuns(jsQuickRunInfos, lang, type)}
 
-${renderDevInfos(data, lang)}
+${renderDevInfos(data, lang, type)}
 ${license?`## ${lang('license')}
 
 ${license}` : ''}`;

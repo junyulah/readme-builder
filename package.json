@@ -1,10 +1,10 @@
 {
   "name": "readme-builder",
-  "version": "0.0.9",
-  "description": " A simple tool used to generate read me doc for project",
+  "version": "0.0.10",
+  "description": " A simple tool used to generate read me doc for project\n[readme-lang:zh]用于生成项目的readme文档的简单工具",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --reporter spec 'test/index.js'"
+    "test": "mocha --reporter spec 'test/function/**/*.js'"
   },
   "repository": {
     "type": "git",

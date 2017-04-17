@@ -1,14 +1,16 @@
 'use strict';
 
 let renderStdouts = require('./renderStdouts');
+let {getLangText} = require('../../util');
 
-module.exports = (binQuickRunInfos, lang) => {
+module.exports = (binQuickRunInfos, lang, langType) => {
     return `
 ${binQuickRunInfos.length? `### ${lang('CLI quick run')}`: ''}
 
 ${binQuickRunInfos.map(({quickRunInfos, binName}) => {
     return `- ${binName}` + '\n\n' + quickRunInfos.map(({testInfos, testDescription}) => {
-        return `${testDescription}
+        // simple description about this quick run demo
+        return `${getLangText(testDescription, langType)}
 
 ${testInfos.map(({binCode, stdouts}) => {
     return `
