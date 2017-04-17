@@ -38,7 +38,7 @@ run buildreadme in your project root
     $  echo "\n\n......"
 ```
 
-<pre>
+```
 输出
 
     # test-p0
@@ -57,7 +57,7 @@ run buildreadme in your project root
     
     ......
 
-</pre>
+```
 
 
 write result to readme.md, just add `-w` option
@@ -71,13 +71,13 @@ write result to readme.md, just add `-w` option
     $  ls README*
 ```
 
-<pre>
+```
 输出
 
     README.md
     README_zh.md
 
-</pre>
+```
 
 
 ### CLI 选项
@@ -117,7 +117,7 @@ readmeBuilder({
 });
 ```
 
-<pre>
+```
 输出
 
     # test-p0
@@ -147,7 +147,7 @@ readmeBuilder({
     
     ......
 
-</pre>
+```
 
 ## 开发
 

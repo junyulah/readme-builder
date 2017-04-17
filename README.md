@@ -56,7 +56,9 @@ output
     ## 
     
     ......
+
 ```
+
 
 write result to readme.md, just add `-w` option
 
@@ -69,13 +71,13 @@ commands
     $  ls README*
 ```
 
-<pre>
+```
 output
 
     README.md
     README_zh.md
 
-</pre>
+```
 
 
 ### CLI options
@@ -115,7 +117,7 @@ readmeBuilder({
 });
 ```
 
-<pre>
+```
 output
 
     # test-p0
@@ -145,7 +147,7 @@ output
     
     ......
 
-</pre>
+```
 
 ## develop
 
