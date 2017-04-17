@@ -154,35 +154,35 @@ output
 ### file structure
 
 ```
-.
-│──LICENSE
-│──README.md
-│──README_zh.md
-│──bin
-│   └──build-readme.js
-│──index.js
-│──package.json
-│──src
-│   │──index.js
-│   │──node
-│   │   │──collector
-│   │   │   │──binHelpers.js
-│   │   │   │──commentsContent.js
-│   │   │   │──devHelpers.js
-│   │   │   │──index.js
-│   │   │   └──license.js
-│   │   │──index.js
-│   │   └──processor
-│   │       │──binQuickRunInfos.js
-│   │       │──commentToDocVariables.js
-│   │       │──index.js
-│   │       └──jsQuickRunInfos.js
-│   └──util
-│       └──index.js
-└──test
-    │──fixture
-    │   └──node
-    └──index.js 
+.    
+│──LICENSE    
+│──README.md    
+│──README_zh.md    
+│──bin    
+│   └──build-readme.js    
+│──index.js    
+│──package.json    
+│──src    
+│   │──index.js    
+│   │──node    
+│   │   │──collector    
+│   │   │   │──binHelpers.js    collect bin help info
+│   │   │   │──commentsContent.js    
+│   │   │   │──devHelpers.js    
+│   │   │   │──index.js    
+│   │   │   └──license.js    
+│   │   │──index.js    
+│   │   └──processor    
+│   │       │──binQuickRunInfos.js    
+│   │       │──commentToDocVariables.js    
+│   │       │──index.js    
+│   │       └──jsQuickRunInfos.js    
+│   └──util    
+│       └──index.js    
+└──test    
+    │──fixture    
+    │   └──node    
+    └──index.js     
 ```
 
 

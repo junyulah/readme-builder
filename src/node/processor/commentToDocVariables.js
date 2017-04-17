@@ -2,6 +2,7 @@
 
 const RAW_READ_ME_DOC_PREFIX = '@readme-doc';
 const READ_ME_QUICK_RUN_PREFIX = '@readme-quick-run';
+const READ_ME_FILE_DESCRIPTION_PREFIX = '@readme-file-description';
 
 let {
     testParser
@@ -11,8 +12,14 @@ let path = require('path');
 
 module.exports = (comments = [], {
     projectDir,
-    rawReadMeDocPrefix = RAW_READ_ME_DOC_PREFIX, readMeQuickRunPrefix = READ_ME_QUICK_RUN_PREFIX
+    rawReadMeDocPrefix = RAW_READ_ME_DOC_PREFIX, readMeQuickRunPrefix = READ_ME_QUICK_RUN_PREFIX, readMeFileDescriptionPrefix = READ_ME_FILE_DESCRIPTION_PREFIX
 } = {}) => {
+    let prefixMap = {
+        rawReadDocs: rawReadMeDocPrefix,
+        quickRunDocs: readMeQuickRunPrefix,
+        fileDescriptions: readMeFileDescriptionPrefix
+    };
+
     return comments.reduce((prev, {
         file, comment
     }) => {
@@ -22,35 +29,25 @@ module.exports = (comments = [], {
             } = block;
             let lines = joinLines(paraBlocks);
             let firstIndex = getFirstTextLineIndex(lines);
-            if (firstIndex !== -1) {
-                let rawReadDoc = getPara(rawReadMeDocPrefix, lines, firstIndex, file);
-                if (rawReadDoc) {
-                    pre.rawReadDocs = pre.rawReadDocs || [];
-                    pre.rawReadDocs.push(rawReadDoc);
-                } else {
-                    let quickRunDoc = getQuickRunDoc(lines, firstIndex, readMeQuickRunPrefix, file, projectDir, block);
 
-                    if (quickRunDoc) {
-                        pre.quickRunDocs = pre.quickRunDocs || [];
-                        pre.quickRunDocs.push(quickRunDoc);
+            if (firstIndex !== -1) {
+                for (let name in prefixMap) {
+                    let prefix = prefixMap[name];
+                    let item = getPara(prefix, lines, firstIndex, file);
+                    if (item) {
+                        if (prefix === readMeQuickRunPrefix) {
+                            item.test = testParser([block], path.resolve(projectDir, file));
+                            item.testDescription = getTestDescription(item.text);
+                        }
+                        pre[name] = pre[name] || [];
+                        pre[name].push(item);
+                        break;
                     }
                 }
             }
-
             return pre;
         }, prev);
     }, {});
-};
-
-let getQuickRunDoc = (lines, firstIndex, readMeQuickRunPrefix, file, projectDir, block) => {
-    let quickRunDoc = getPara(readMeQuickRunPrefix, lines, firstIndex, file);
-
-    if (quickRunDoc) {
-        quickRunDoc.test = testParser([block], path.resolve(projectDir, file));
-        quickRunDoc.testDescription = getTestDescription(quickRunDoc.text);
-
-        return quickRunDoc;
-    }
 };
 
 let getTestDescription = (text) => {
@@ -62,9 +59,15 @@ let getTestDescription = (text) => {
 };
 
 let getPara = (prefix, lines, firstIndex, file) => {
-    if (lines[firstIndex] === prefix) {
+    let firstLine = lines[firstIndex].trim();
+    if (firstLine.indexOf(prefix) === 0 &&
+        (firstLine.length === prefix.length || /\s/.test(firstLine[prefix.length]))
+    ) {
+        let firstLineParamText = (firstLine.substring(prefix.length) || '').trim();
+
         return {
-            PREFIX: lines[firstIndex],
+            PREFIX: firstLine,
+            firstLineParamText,
             file,
             text: lines.slice(firstIndex + 1).join('\n').trim()
         };

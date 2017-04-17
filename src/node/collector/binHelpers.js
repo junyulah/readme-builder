@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * @readme-file-description collect bin help info
+ */
+
 let path = require('path');
 let {
     exec
