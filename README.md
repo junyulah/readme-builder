@@ -38,7 +38,7 @@ commands
     $  echo "\n\n......"
 ```
 
-<pre>
+```
 output
 
     # test-p0
@@ -56,9 +56,7 @@ output
     ## 
     
     ......
-
-</pre>
-
+```
 
 write result to readme.md, just add `-w` option
 
@@ -118,7 +116,6 @@ readmeBuilder({
 ```
 
 <pre>
-```
 output
 
     # test-p0
@@ -148,9 +145,6 @@ output
     
     ......
 
-    <div>just for test!</div>
-
-```
 </pre>
 
 ## develop
