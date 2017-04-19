@@ -3,6 +3,7 @@
 const RAW_READ_ME_DOC_PREFIX = '@readme-doc';
 const READ_ME_QUICK_RUN_PREFIX = '@readme-quick-run';
 const READ_ME_FILE_DESCRIPTION_PREFIX = '@readme-file-description';
+const READ_ME_API_PREFIX = '@readme-api';
 
 let {
     testParser
@@ -12,12 +13,13 @@ let path = require('path');
 
 module.exports = (comments = [], {
     projectDir,
-    rawReadMeDocPrefix = RAW_READ_ME_DOC_PREFIX, readMeQuickRunPrefix = READ_ME_QUICK_RUN_PREFIX, readMeFileDescriptionPrefix = READ_ME_FILE_DESCRIPTION_PREFIX
+    rawReadMeDocPrefix = RAW_READ_ME_DOC_PREFIX, readMeQuickRunPrefix = READ_ME_QUICK_RUN_PREFIX, readMeFileDescriptionPrefix = READ_ME_FILE_DESCRIPTION_PREFIX, readMeApiPrefix = READ_ME_API_PREFIX
 } = {}) => {
     let prefixMap = {
         rawReadDocs: rawReadMeDocPrefix,
         quickRunDocs: readMeQuickRunPrefix,
-        fileDescriptions: readMeFileDescriptionPrefix
+        fileDescriptions: readMeFileDescriptionPrefix,
+        apis: readMeApiPrefix
     };
 
     return comments.reduce((prev, {
@@ -35,10 +37,9 @@ module.exports = (comments = [], {
                     let prefix = prefixMap[name];
                     let item = getPara(prefix, lines, firstIndex, file);
                     if (item) {
-                        if (prefix === readMeQuickRunPrefix) {
-                            item.test = testParser([block], path.resolve(projectDir, file));
-                            item.testDescription = getTestDescription(item.text);
-                        }
+                        item.test = testParser([block], path.resolve(projectDir, file));
+                        item.testDescription = getTestDescription(item.text);
+
                         pre[name] = pre[name] || [];
                         pre[name].push(item);
                         break;

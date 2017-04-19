@@ -10,6 +10,8 @@ let renderJsQuickRuns = require('./renderJsQuickRuns');
 
 let renderDevInfos = require('./renderDevInfos');
 
+let renderApiInfos = require('./renderApiInfos');
+
 let {getLangText} = require('../../util');
 
 let langGuideMap = {
@@ -73,6 +75,7 @@ ${text}
 })}
 
 ${renderJsQuickRuns(jsQuickRunInfos, lang, type)}
+${renderApiInfos(data, lang, type)}
 
 ${renderDevInfos(data, lang, type)}
 ${license?`## ${lang('license')}

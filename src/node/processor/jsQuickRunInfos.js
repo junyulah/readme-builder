@@ -2,7 +2,7 @@
 
 let path = require('path');
 let {
-    getTestInfoByRunIt, testFailInformation
+    getTestInfoByRunIt, testFailInformation, getModuleVarName
 } = require('../../util');
 
 /**
@@ -61,9 +61,4 @@ let runQuickStart = ({
             }
         });
     });
-};
-
-let getModuleVarName = (file, testVariables) => {
-    if (testVariables.r_c) return testVariables.r_c;
-    return path.basename(file, path.extname(file));
 };

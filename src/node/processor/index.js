@@ -3,9 +3,10 @@
 let commentToDocVariables = require('./commentToDocVariables');
 let binQuickRunInfos = require('./binQuickRunInfos');
 let jsQuickRunInfos = require('./jsQuickRunInfos');
+let apiInfos = require('./apiInfos');
 
 let processors = {
-    binQuickRunInfos, jsQuickRunInfos
+    binQuickRunInfos, jsQuickRunInfos, apiInfos
 };
 
 let processorKeys = Object.keys(processors);

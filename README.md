@@ -8,6 +8,7 @@
   * [CLI quick run](#cli-quick-run)
   * [CLI options](#cli-options)
   * [API quick run](#api-quick-run)
+- [api](#api)
 - [develop](#develop)
   * [file structure](#file-structure)
   * [run tests](#run-tests)
@@ -150,6 +151,21 @@ output
     ......
 
 ```
+## api
+<a name="readmeBuilder"/>readmeBuilder (options, type)
+    -----------
+
+<ul><li>options  Object<div></div><ul><li>when type is Object
+<ul><li>projectDir  <div></div><ul></ul></li></ul></li></ul></li><li>type  String | Falsy<div>only support node right now</div><ul></ul></li></ul>
+
+
+
+
+```
+let readmeBuilder = require('readme-builder/src/index.js')
+//
+```
+
 
 ## develop
 
@@ -160,6 +176,7 @@ output
 │──LICENSE    
 │──README.md    
 │──README_zh.md    
+│──TODO.md    
 │──bin    
 │   └──build-readme.js    
 │──index.js    
@@ -175,6 +192,7 @@ output
 │   │   │   └──license.js    
 │   │   │──index.js    
 │   │   └──processor    
+│   │       │──apiInfos.js    
 │   │       │──binQuickRunInfos.js    
 │   │       │──commentToDocVariables.js    
 │   │       │──index.js    

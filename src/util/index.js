@@ -6,6 +6,7 @@ let path = require('path');
 let {
     runTestsWithParsedCode
 } = require('defcomment');
+let {filter} = require('bolzano');
 
 let getTestInfoByRunIt = ({
     resultCode, testCode
@@ -72,9 +73,26 @@ let matchLang = (line) => {
     return {type: ret[1], next: ret[2]};
 };
 
+let getModuleVarName = (file, testVariables) => {
+    if (testVariables.r_c) return testVariables.r_c;
+    return path.basename(file, path.extname(file));
+};
+
+let getModulePath = (packageJson, file) => {
+    return file === packageJson.main ? packageJson.name : `${packageJson.name}/${file}`;
+};
+
+let hideLine = (text, hideSymbols = '@readme-hide') => {
+    let lines = text.split('\n');
+    return filter(lines, (line) => line.indexOf(hideSymbols) === -1).join('\n');
+};
+
 module.exports = {
     getTestInfoByRunIt,
     testFailInformation,
     filterTextByLang,
-    getLangText
+    getLangText,
+    getModuleVarName,
+    getModulePath,
+    hideLine
 };
