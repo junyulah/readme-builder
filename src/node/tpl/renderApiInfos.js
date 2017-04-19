@@ -30,7 +30,7 @@ let getFunDescription = (apiDes) => {
         let paramNames = map(params, ({alias}) => alias);
         let funName = apiDes.alias || apiDes.name;
         return `<a name="${funName}"/>${funName} (${map(paramNames, (name) => name || '_').join(', ')})
-    -----------
+-----------
 
 ${getParamsText(params)}
 `;
