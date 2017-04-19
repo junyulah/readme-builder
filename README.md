@@ -9,6 +9,7 @@
   * [CLI options](#cli-options)
   * [API quick run](#api-quick-run)
 - [api](#api)
+- [readmeBuilder (options, type)](#readmebuilder-options-type)
 - [develop](#develop)
   * [file structure](#file-structure)
   * [run tests](#run-tests)
@@ -153,7 +154,7 @@ output
 ```
 ## api
 <a name="readmeBuilder"/>readmeBuilder (options, type)
-    -----------
+-------------------------------------------------------------------
 
 <ul><li>options  Object<div></div><ul><li>when type is Object
 <ul><li>projectDir  <div></div><ul></ul></li></ul></li></ul></li><li>type  String | Falsy<div>only support node right now</div><ul></ul></li></ul>
