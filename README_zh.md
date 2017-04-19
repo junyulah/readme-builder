@@ -154,16 +154,16 @@ readmeBuilder({
 <a name="readmeBuilder"/>readmeBuilder (options, type)
 -------------------------------------------------------------------
 
-<ul><li>options  Object<div></div><ul><li>when type is Object
-<ul><li>projectDir  <div></div><ul></ul></li></ul></li></ul></li><li>type  String | Falsy<div>only support node right now</div><ul></ul></li></ul>
-
-
 
 
 ```
 let readmeBuilder = require('readme-builder/src/index.js')
 //
 ```
+
+<ul><li>`options`  Object<div></div><ul><li>when type is Object
+<ul><li>`projectDir`  <div></div><ul></ul></li></ul></li></ul></li><li>`type`  String | Falsy<div>only support node right now</div><ul></ul></li></ul>
+
 
 
 ## 开发
