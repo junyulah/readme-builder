@@ -49,7 +49,7 @@ let getParamsText = (params) => {
 };
 
 let renderDataDSL = (dataDSL) => {
-    return `<li>\`${dataDSL.alias || dataDSL.name}\`  ${getType(dataDSL)}<div>${dataDSL.detail}</div>${renderPatterns(dataDSL.patterns)}</li>`;
+    return `<li>${dataDSL.alias || dataDSL.name}  ${getType(dataDSL)}<div>${dataDSL.detail}</div>${renderPatterns(dataDSL.patterns)}</li>`;
 };
 
 let renderPatterns = (patterns) => {
