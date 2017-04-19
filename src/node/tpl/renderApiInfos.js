@@ -14,16 +14,6 @@ ${apiInfos.map((apiInfo) => renderApi(apiInfo, lang, langType))}
 };
 
 let renderApi = ({testDescription, code, apiDes}, lang, langType) => {
-    return `${getFunDescription(apiDes)}
-
-${getLangText(testDescription, langType)}
-
-\`\`\`
-${code}
-\`\`\``;
-};
-
-let getFunDescription = (apiDes) => {
     let paramDSL = getParamsDSL(apiDes);
     return map(paramDSL.patterns, (pattern) => {
         let params = getParams(pattern);
@@ -31,6 +21,12 @@ let getFunDescription = (apiDes) => {
         let funName = apiDes.alias || apiDes.name;
         return `<a name="${funName}"/>${funName} (${map(paramNames, (name) => name || '_').join(', ')})
 -------------------------------------------------------------------
+
+${getLangText(testDescription, langType)}
+
+\`\`\`
+${code}
+\`\`\`
 
 ${getParamsText(params)}
 `;
@@ -53,7 +49,7 @@ let getParamsText = (params) => {
 };
 
 let renderDataDSL = (dataDSL) => {
-    return `<li>${dataDSL.alias || dataDSL.name}  ${getType(dataDSL)}<div>${dataDSL.detail}</div>${renderPatterns(dataDSL.patterns)}</li>`;
+    return `<li>\`${dataDSL.alias || dataDSL.name}\`  ${getType(dataDSL)}<div>${dataDSL.detail}</div>${renderPatterns(dataDSL.patterns)}</li>`;
 };
 
 let renderPatterns = (patterns) => {
