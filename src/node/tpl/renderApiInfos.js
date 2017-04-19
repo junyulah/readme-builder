@@ -20,9 +20,8 @@ let renderApi = ({testDescription, code, apiDes, testVariables}, lang, langType)
 
     return map(paramDSL.patterns, (pattern) => {
         let params = getParams(pattern);
-        let paramNames = map(params, ({alias}) => alias);
-        let funName = getName(apiDes);
-        return `###  ${getName(returnDSL)} = ${funName}(${map(paramNames, (name) => name || '_').join(', ')})
+        let signature = getSignature(apiDes, params, returnDSL);
+        return `### ${signature}
 
 ${getLangText(testDescription, langType)}
 
@@ -36,6 +35,12 @@ ${getParamsText(params)}
 ${renderDataDSL(returnDSL)}
 </ul>`;
     }).join('\n\n');
+};
+
+let getSignature = (apiDes, params, returnDSL) => {
+    let paramNames = map(params, ({alias}) => alias);
+    let funName = getName(apiDes);
+    return `${getName(returnDSL)}=${funName}(${map(paramNames, (name) => name || '_').join(', ')})`;
 };
 
 let getParams = (pattern) => {
@@ -54,13 +59,16 @@ let getParamsText = (params) => {
 };
 
 let renderDataDSL = (dataDSL) => {
-    return `<li><code>${getName(dataDSL)}</code>${getType(dataDSL)}<div>${dataDSL.detail}</div>${renderPatterns(dataDSL)}</li>`;
+    let detailText = dataDSL.detail? `- ${dataDSL.detail}`: '';
+    return `<li><strong>${getName(dataDSL)}</strong> ${getType(dataDSL)} ${detailText}<div>${renderPatterns(dataDSL)}</div></li>`;
 };
 
 let renderPatterns = (dataDSL) => {
-    return `${map(dataDSL.patterns, ({type, nexts}, index) => {
+    let len = dataDSL.patterns && dataDSL.patterns.length;
+    return `${map(dataDSL.patterns, ({type, nexts}) => {
         if(!nexts.length) return '';
-        return `situation ${index + 1}, <code>${getName(dataDSL)}</code> 's type is ${type}
+        let patternTypeDes = len? `<code>${getName(dataDSL)} (${type})</code>`: '';
+        return `${patternTypeDes}
 ${renderNexts(nexts)}`;
     }).join('')}`;
 };
@@ -70,7 +78,7 @@ let renderNexts = (nexts) => {
 };
 
 let getType = (dataDSL) => {
-    return getTypes(dataDSL).join(' | ');
+    return `<code>(${getTypes(dataDSL).join(' | ')})</code>`;
 };
 
 let getName = (dataDSL) => dataDSL.alias || dataDSL.name;

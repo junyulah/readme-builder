@@ -9,7 +9,7 @@
   * [CLI options](#cli-options)
   * [API quick run](#api-quick-run)
 - [api](#api)
-  * [result = readmeBuilder(options, type)](#result--readmebuilderoptions-type)
+  * [result=readmeBuilder(options, type)](#resultreadmebuilderoptions-type)
 - [develop](#develop)
   * [file structure](#file-structure)
   * [run tests](#run-tests)
@@ -153,20 +153,23 @@ output
 
 ```
 ## api
-###  result = readmeBuilder(options, type)
+### result=readmeBuilder(options, type)
 
 
 
 ```js
 let readmeBuilder = require('readme-builder/src/index.js')
-//
+// example
+// readmeBuilder({
+//    projectDir: path.resolve(__dirname, './project')
+// })
 ```
 
-<ul><li><code>options</code>Object<div></div>situation 1, <code>options</code> 's type is Object
-<ul><li><code>projectDir</code>String<div>project directory</div></li></ul></li><li><code>type</code>String | Falsy<div>only support node right now</div></li></ul>
+<ul><li><strong>options</strong> <code>(Falsy | Object)</code> <div><code>options (Object)</code>
+<ul><li><strong>projectDir</strong> <code>(String)</code> - The Project directory<div></div></li></ul></div></li><li><strong>type</strong> <code>(String | Falsy)</code> - Only support node right now<div></div></li></ul>
 
 <ul>
-<li><code>result</code>Object<div></div></li>
+<li><strong>result</strong> <code>(Promise)</code> <div></div></li>
 </ul>
 
 
