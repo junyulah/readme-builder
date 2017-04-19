@@ -20,12 +20,13 @@ module.exports = (projectDir, packageJson, {
     }) => {
         let jsPath = path.resolve(projectDir, file);
         return runApiRefer(test, jsPath, file, packageJson).then(({
-            code, apiDes
+            code, apiDes, testVariables
         }) => {
             return {
                 testDescription,
                 code,
-                apiDes
+                apiDes,
+                testVariables
             };
         });
     }));
@@ -33,9 +34,14 @@ module.exports = (projectDir, packageJson, {
 
 let runApiRefer = (test, jsPath, file, packageJson) => {
     return getTestInfoByRunIt(test, jsPath).then((rets) => {
+        let testVars = null;
+
         let codes = rets.cases.map(({
             sampleString, errorMsg, testVariables
         }) => {
+            if (!testVars) {
+                testVars = testVariables;
+            }
             if (errorMsg) {
                 throw new Error(`fail to run CLI quick start. ${testFailInformation(sampleString, errorMsg)}`);
             } else {
@@ -44,9 +50,15 @@ let runApiRefer = (test, jsPath, file, packageJson) => {
             }
         });
 
+        let apiDes = null;
+        if (testVars && testVars.api_des === 'output') {
+            apiDes = JSON.parse(rets.stdouts.join('\n'));
+        }
+
         return {
             code: hideLine(codes.join('\n')),
-            apiDes: JSON.parse(rets.stdouts.join('\n'))
+            apiDes,
+            testVariables: testVars
         };
     });
 };

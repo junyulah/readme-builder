@@ -9,7 +9,7 @@
   * [CLI options](#cli-options)
   * [API quick run](#api-quick-run)
 - [api](#api)
-- [readmeBuilder (options, type)](#readmebuilder-options-type)
+  * [result = readmeBuilder(options, type)](#result--readmebuilderoptions-type)
 - [develop](#develop)
   * [file structure](#file-structure)
   * [run tests](#run-tests)
@@ -153,19 +153,21 @@ output
 
 ```
 ## api
-<a name="readmeBuilder"/>readmeBuilder (options, type)
--------------------------------------------------------------------
+###  result = readmeBuilder(options, type)
 
 
 
-```
+```js
 let readmeBuilder = require('readme-builder/src/index.js')
 //
 ```
 
-<ul><li>options  Object<div></div><ul><li>when type is Object
-<ul><li>projectDir  <div></div><ul></ul></li></ul></li></ul></li><li>type  String | Falsy<div>only support node right now</div><ul></ul></li></ul>
+<ul><li><code>options</code>Object<div></div>situation 1, <code>options</code> 's type is Object
+<ul><li><code>projectDir</code>String<div>project directory</div></li></ul></li><li><code>type</code>String | Falsy<div>only support node right now</div></li></ul>
 
+<ul>
+<li><code>result</code>Object<div></div></li>
+</ul>
 
 
 ## develop

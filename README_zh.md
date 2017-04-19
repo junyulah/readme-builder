@@ -9,7 +9,7 @@
   * [CLI 选项](#cli-%E9%80%89%E9%A1%B9)
   * [API 快速运行](#api-%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C)
 - [api](#api)
-- [readmeBuilder (options, type)](#readmebuilder-options-type)
+  * [result = readmeBuilder(options, type)](#result--readmebuilderoptions-type)
 - [开发](#%E5%BC%80%E5%8F%91)
   * [文件结构](#%E6%96%87%E4%BB%B6%E7%BB%93%E6%9E%84)
   * [运行测试用例](#%E8%BF%90%E8%A1%8C%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B)
@@ -151,19 +151,21 @@ readmeBuilder({
 
 ```
 ## api
-<a name="readmeBuilder"/>readmeBuilder (options, type)
--------------------------------------------------------------------
+###  result = readmeBuilder(options, type)
 
 
 
-```
+```js
 let readmeBuilder = require('readme-builder/src/index.js')
 //
 ```
 
-<ul><li>options  Object<div></div><ul><li>when type is Object
-<ul><li>projectDir  <div></div><ul></ul></li></ul></li></ul></li><li>type  String | Falsy<div>only support node right now</div><ul></ul></li></ul>
+<ul><li><code>options</code>Object<div></div>situation 1, <code>options</code> 's type is Object
+<ul><li><code>projectDir</code>String<div>project directory</div></li></ul></li><li><code>type</code>String | Falsy<div>only support node right now</div></li></ul>
 
+<ul>
+<li><code>result</code>Object<div></div></li>
+</ul>
 
 
 ## 开发

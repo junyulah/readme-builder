@@ -13,7 +13,7 @@ let {
 /**
  * @readme-api
  *
- * ## test tar=js r_c=readmeBuilder
+ * ## test tar=js r_c=readmeBuilder api_des=output
  * //
  * console.log(JSON.stringify(readmeBuilder.__description)); // @readme-hide
  * <!--testEnd-->
@@ -30,10 +30,10 @@ module.exports = df(
     f(
         'readmeBuilder',
         arg(
-            d('0:options', p('Object', d('projectDir'))),
+            d('0:options', p('Object', d('projectDir', 'project directory', p('String')))),
 
-            d('1:type', 'only support node right now',p('String'), p('Falsy'))
+            d('1:type', 'only support node right now', p('String'), p('Falsy'))
         ),
-        d('return')
+        d('result', p('Object'))
     )
 );
