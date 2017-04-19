@@ -33,9 +33,9 @@ module.exports = df(
     f(
         'readmeBuilder',
         arg(
-            d('0:options', p('Falsy'), p('Object', d('projectDir', 'The Project directory', p('String')))),
+            d('0:options', p('Falsy'), p('Object', d('projectDir', 'The directory of project used to generate readme document\n[readme-lang:zh]要生成文档的项目的目录', p('String')))),
 
-            d('1:type', 'Only support node right now', p('String'), p('Falsy'))
+            d('1:type', 'Only support node right now\n[readme-lang:zh]目前只支持node项目', p('String'), p('Falsy'))
         ),
         d('result', p('Promise'))
     )

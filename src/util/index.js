@@ -87,6 +87,15 @@ let hideLine = (text, hideSymbols = '@readme-hide') => {
     return filter(lines, (line) => line.indexOf(hideSymbols) === -1).join('\n');
 };
 
+let processRawText = (text, langType) => {
+    text = hideLine(text);
+    let def = '';
+    if(langType && langType !== 'en') {
+        def = getLangText(text);
+    }
+    return getLangText(text, langType) || def;
+};
+
 module.exports = {
     getTestInfoByRunIt,
     testFailInformation,
@@ -94,5 +103,6 @@ module.exports = {
     getLangText,
     getModuleVarName,
     getModulePath,
-    hideLine
+    hideLine,
+    processRawText
 };

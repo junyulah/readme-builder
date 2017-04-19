@@ -6,6 +6,8 @@ let {
     getFilesToc
 } = require('dir-tree-info');
 
+let {processRawText} = require('../../util');
+
 module.exports = ({devHelpers, packageJson, comments={}, projectDir}, lang) => {
     let testText = getTestText(packageJson);
     let fileDescriptionMap = getFileDescriptionMap(comments);
@@ -17,7 +19,7 @@ module.exports = ({devHelpers, packageJson, comments={}, projectDir}, lang) => {
 \`\`\`
 ${getFilesToc(devHelpers.filesTree, (name, file) => {
     file = path.relative(projectDir, file.path);
-    return [name, fileDescriptionMap[file] || ''].join('    ');
+    return [name, processRawText(fileDescriptionMap[file] || '')].join('    ');
 })} 
 \`\`\`
 

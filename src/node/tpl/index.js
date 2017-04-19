@@ -12,7 +12,7 @@ let renderDevInfos = require('./renderDevInfos');
 
 let renderApiInfos = require('./renderApiInfos');
 
-let {getLangText} = require('../../util');
+let {processRawText} = require('../../util');
 
 let langGuideMap = {
     'zh': '中文文档',
@@ -36,7 +36,7 @@ let getDoc = (options, lang, type, langTypes) => {
 
 ${langTypes.map((type) => type === 'en'? `[${langGuideMap[type]}](./README.md)`: `[${langGuideMap[type]}](./README_${type}.md)`).join('   ')}
 
-${getLangText(packageJson.description, type)}
+${processRawText(packageJson.description, type)}
 ${tocContent}
 ${bodyText}`;
 };

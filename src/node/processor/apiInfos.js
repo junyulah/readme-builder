@@ -6,7 +6,7 @@ let {
     map
 } = require('bolzano');
 let {
-    getTestInfoByRunIt, testFailInformation, getModuleVarName, getModulePath, hideLine
+    getTestInfoByRunIt, testFailInformation, getModuleVarName, getModulePath
 } = require('../../util');
 
 /**
@@ -56,7 +56,7 @@ let runApiRefer = (test, jsPath, file, packageJson) => {
         }
 
         return {
-            code: hideLine(codes.join('\n')),
+            code: codes.join('\n'),
             apiDes,
             testVariables: testVars
         };

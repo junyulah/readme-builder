@@ -141,11 +141,11 @@ readmeBuilder({
     
     [中文文档](./README_zh.md)   [document](./README.md)
     
-    
+    test p0 project
     - [安装](#%E5%AE%89%E8%A3%85)
     - [goal](#goal)
     - [使用方法](#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95)
-      * [命令行快速运行](#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%
+      * [命令行快速运行](#%E5%91%BD%E4%BB%
     
     ......
 
@@ -164,7 +164,7 @@ let readmeBuilder = require('readme-builder/src/index.js')
 ```
 
 <ul><li><strong>options</strong> <code>(Falsy | Object)</code> <div><code>options (Object)</code>
-<ul><li><strong>projectDir</strong> <code>(String)</code> - The Project directory<div></div></li></ul></div></li><li><strong>type</strong> <code>(String | Falsy)</code> - Only support node right now<div></div></li></ul>
+<ul><li><strong>projectDir</strong> <code>(String)</code> - 要生成文档的项目的目录<div></div></li></ul></div></li><li><strong>type</strong> <code>(String | Falsy)</code> - 目前只支持node项目<div></div></li></ul>
 
 <ul>
 <li><strong>result</strong> <code>(Promise)</code> <div></div></li>

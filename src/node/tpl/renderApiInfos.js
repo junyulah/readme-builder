@@ -1,7 +1,6 @@
 'use strict';
 
-// let renderStdouts = require('./renderStdouts');
-let {getLangText} = require('../../util');
+let {processRawText} = require('../../util');
 let {getParamsDSL, getReturnDSL} = require('describe-data');
 let {map, reduce} = require('bolzano');
 
@@ -23,13 +22,13 @@ let renderApi = ({testDescription, code, apiDes, testVariables}, lang, langType)
         let signature = getSignature(apiDes, params, returnDSL);
         return `### ${signature}
 
-${getLangText(testDescription, langType)}
+${processRawText(testDescription, langType)}
 
 \`\`\`${testVariables? testVariables.tar : ''}
-${code}
+${processRawText(code, langType)}
 \`\`\`
 
-${getParamsText(params)}
+${getParamsText(params, lang, langType)}
 
 <ul>
 ${renderDataDSL(returnDSL)}
@@ -40,6 +39,7 @@ ${renderDataDSL(returnDSL)}
 let getSignature = (apiDes, params, returnDSL) => {
     let paramNames = map(params, ({alias}) => alias);
     let funName = getName(apiDes);
+
     return `${getName(returnDSL)}=${funName}(${map(paramNames, (name) => name || '_').join(', ')})`;
 };
 
@@ -54,27 +54,27 @@ let getParams = (pattern) => {
     }, []);
 };
 
-let getParamsText = (params) => {
-    return `<ul>${map(params, renderDataDSL).join('')}</ul>`;
+let getParamsText = (params, lang, langType) => {
+    return `<ul>${map(params, (param) => renderDataDSL(param, lang, langType)).join('')}</ul>`;
 };
 
-let renderDataDSL = (dataDSL) => {
-    let detailText = dataDSL.detail? `- ${dataDSL.detail}`: '';
-    return `<li><strong>${getName(dataDSL)}</strong> ${getType(dataDSL)} ${detailText}<div>${renderPatterns(dataDSL)}</div></li>`;
+let renderDataDSL = (dataDSL, lang, langType) => {
+    let detailText = dataDSL.detail? `- ${processRawText(dataDSL.detail, langType)}`: '';
+    return `<li><strong>${getName(dataDSL)}</strong> ${getType(dataDSL)} ${processRawText(detailText, langType)}<div>${renderPatterns(dataDSL, lang, langType)}</div></li>`;
 };
 
-let renderPatterns = (dataDSL) => {
+let renderPatterns = (dataDSL, lang, langType) => {
     let len = dataDSL.patterns && dataDSL.patterns.length;
     return `${map(dataDSL.patterns, ({type, nexts}) => {
         if(!nexts.length) return '';
         let patternTypeDes = len? `<code>${getName(dataDSL)} (${type})</code>`: '';
         return `${patternTypeDes}
-${renderNexts(nexts)}`;
+${renderNexts(nexts, lang, langType)}`;
     }).join('')}`;
 };
 
-let renderNexts = (nexts) => {
-    return `<ul>${map(nexts, renderDataDSL).join('')}</ul>`;
+let renderNexts = (nexts, lang, langType) => {
+    return `<ul>${map(nexts, (next) => renderDataDSL(next, lang, langType)).join('')}</ul>`;
 };
 
 let getType = (dataDSL) => {
