@@ -1,6 +1,6 @@
 {
   "name": "readme-builder",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "description": " A simple tool used to generate read me doc for project\n[readme-lang:zh]用于生成项目的readme文档的简单工具",
   "main": "index.js",
   "scripts": {

@@ -9,6 +9,8 @@ module.exports = ({apiInfos}, lang, langType) => {
         return `## ${lang('api')}
 ${apiInfos.map((apiInfo) => renderApi(apiInfo, lang, langType))}
 `;
+    } else {
+        return '';
     }
 };
 
