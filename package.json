@@ -30,6 +30,7 @@
     "glob": "^7.1.1",
     "markdown-toc": "^1.1.0",
     "minimatch": "^3.0.3",
+    "mix-lang-text": "0.0.2",
     "uuid": "^3.0.1",
     "yargs": "^7.0.2"
   },

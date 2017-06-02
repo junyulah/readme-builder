@@ -4,6 +4,7 @@
 
 用于生成项目的readme文档的简单工具
 - [安装](#%E5%AE%89%E8%A3%85)
+- [goal](#goal)
 - [使用方法](#%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95)
   * [命令行快速运行](#%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E9%80%9F%E8%BF%90%E8%A1%8C)
   * [CLI 选项](#cli-%E9%80%89%E9%A1%B9)
@@ -21,7 +22,9 @@
 
 全局安装, 使用 `npm i readme-builder -g`
 
+## goal
 
+our goal is blah blah...
 
 ## 使用方法
 

@@ -4,6 +4,7 @@
 
  A simple tool used to generate read me doc for project
 - [install](#install)
+- [goal](#goal)
 - [usage](#usage)
   * [CLI quick run](#cli-quick-run)
   * [CLI options](#cli-options)
@@ -21,7 +22,9 @@
 
 Install on global, using `npm i readme-builder -g`
 
+## goal
 
+our goal is blah blah...
 
 ## usage
 
