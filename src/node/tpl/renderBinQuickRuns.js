@@ -13,11 +13,17 @@ ${binQuickRunInfos.map(({quickRunInfos, binName}) => {
         return `${processRawText(testDescription, langType)}
 
 ${testInfos.map(({binCode, stdouts}) => {
+    binCode = processRawText(binCode);
     return `
 \`\`\`shell
 ${lang('commands')}
 
-${binCode.split('\n').map(line => `    $  ${line}`).join('\n')}
+${binCode.split('\n').reduce((prev, line) => {
+    if(line && line.trim()) {
+        prev.push(`    $  ${line}`);
+    }
+    return prev;
+}, []).join('\n')}
 \`\`\`
 
 ${renderStdouts(stdouts, lang)}
