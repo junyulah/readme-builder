@@ -58,7 +58,7 @@ let getDocBody = (data, lang, type) => {
 
 ${lang('Install on global')}, ${lang('using')} \`npm i ${packageJson.name} -g\`
 
-${comments.rawReadDocs? comments.rawReadDocs.map(({text}) => text).join('\n') : ''}
+${comments.rawReadDocs? comments.rawReadDocs.map(({text}) => processRawText(text, type)).join('\n') : ''}
 
 ## ${lang('usage')}
 ${renderBinQuickRuns(binQuickRunInfos, lang, type)}
