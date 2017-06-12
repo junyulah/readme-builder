@@ -1,6 +1,6 @@
 {
   "name": "readme-builder",
-  "version": "0.0.13",
+  "version": "0.0.14",
   "description": " A simple tool used to generate read me doc for project\n[readme-lang:zh]用于生成项目的readme文档的简单工具",
   "main": "index.js",
   "scripts": {
@@ -22,7 +22,7 @@
   },
   "homepage": "https://github.com/LoveKino/readme-builder#readme",
   "dependencies": {
-    "defcomment": "^0.4.12",
+    "defcomment": "^0.4.13",
     "del": "^2.2.2",
     "describe-data": "0.0.1",
     "dir-tree-info": "0.0.2",
